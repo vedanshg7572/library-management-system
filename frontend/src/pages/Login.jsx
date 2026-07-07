@@ -49,7 +49,7 @@ const Login = () => {
       {/* Background radial glows */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-indigo-500/10 blur-[100px]"></div>
 
-      <div className="glass-card w-full max-w-md p-8 rounded-3xl relative z-10 border border-slate-800">
+      <div className="glass-card w-full max-w-md p-8 rounded-3xl relative z-10 border border-slate-800 animate-page-enter glow-border">
         
         {/* Form Title */}
         <div className="text-center mb-8">
@@ -81,7 +81,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full bg-slate-950/40 border border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-slate-200 pl-11 pr-4 py-3 rounded-2xl text-sm font-medium outline-none transition-all placeholder:text-slate-600"
+                className="input-glow w-full bg-slate-950/40 border border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-slate-200 pl-11 pr-4 py-3 rounded-2xl text-sm font-medium outline-none transition-all placeholder:text-slate-600"
                 placeholder="you@example.com"
               />
             </div>
@@ -99,7 +99,7 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full bg-slate-950/40 border border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-slate-200 pl-11 pr-4 py-3 rounded-2xl text-sm font-medium outline-none transition-all placeholder:text-slate-600"
+                className="input-glow w-full bg-slate-950/40 border border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-slate-200 pl-11 pr-4 py-3 rounded-2xl text-sm font-medium outline-none transition-all placeholder:text-slate-600"
                 placeholder="••••••••"
               />
             </div>
@@ -109,7 +109,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full glow-btn bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3.5 rounded-2xl text-sm shadow-lg shadow-indigo-600/25 transition-all flex items-center justify-center space-x-2 cursor-pointer mt-2"
+            className="w-full glow-btn btn-zoom ripple-btn bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3.5 rounded-2xl text-sm shadow-lg shadow-indigo-600/25 transition-all flex items-center justify-center space-x-2 cursor-pointer mt-2"
           >
             {loading ? (
               <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
@@ -139,14 +139,14 @@ const Login = () => {
           <div className="grid grid-cols-2 gap-3">
             <button
               onClick={() => fillDemo('student')}
-              className="bg-slate-900/60 border border-slate-850 hover:bg-slate-800/50 hover:border-slate-800 text-slate-300 py-2.5 px-3 rounded-xl text-left text-[11px] font-semibold transition-all cursor-pointer"
+              className="btn-zoom ripple-btn bg-slate-900/60 border border-slate-850 hover:bg-slate-800/50 hover:border-slate-800 text-slate-300 py-2.5 px-3 rounded-xl text-left text-[11px] font-semibold transition-all cursor-pointer"
             >
               <p className="text-white font-bold">John Doe (Student)</p>
               <p className="text-slate-500 mt-0.5">student@library.com</p>
             </button>
             <button
               onClick={() => fillDemo('admin')}
-              className="bg-slate-900/60 border border-slate-850 hover:bg-slate-800/50 hover:border-slate-800 text-slate-300 py-2.5 px-3 rounded-xl text-left text-[11px] font-semibold transition-all cursor-pointer"
+              className="btn-zoom ripple-btn bg-slate-900/60 border border-slate-850 hover:bg-slate-800/50 hover:border-slate-800 text-slate-300 py-2.5 px-3 rounded-xl text-left text-[11px] font-semibold transition-all cursor-pointer"
             >
               <p className="text-white font-bold">Librarian (Admin)</p>
               <p className="text-slate-500 mt-0.5">admin@library.com</p>

@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+/* ============================================
+   🎨 ANIMATION SYSTEM — VED LIBRARY
+   ============================================ */
+
 
 @theme {
   --font-sans: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
@@ -13,40 +17,71 @@
   color-scheme: dark;
 }
 
+/* ===== DARK MODE (default) ===== */
+.dark {
+  --bg-primary: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f0f17 50%, #03001e 100%);
+  --text-primary: #f8fafc;
+  --scrollbar-track: #0f172a;
+  --scrollbar-thumb: #334155;
+  --scrollbar-thumb-hover: #475569;
+  --glass-panel-bg: rgba(15, 23, 42, 0.65);
+  --glass-card-bg: rgba(30, 41, 59, 0.45);
+  --glass-card-hover-bg: rgba(30, 41, 59, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-card-border: rgba(255, 255, 255, 0.05);
+  color-scheme: dark;
+}
+
+/* ===== LIGHT MODE ===== */
+.light {
+  --bg-primary: radial-gradient(circle at 50% 0%, #ede9fe 0%, #f0f4ff 50%, #f8fafc 100%);
+  --text-primary: #0f172a;
+  --scrollbar-track: #e2e8f0;
+  --scrollbar-thumb: #94a3b8;
+  --scrollbar-thumb-hover: #64748b;
+  --glass-panel-bg: rgba(255, 255, 255, 0.72);
+  --glass-card-bg: rgba(241, 245, 249, 0.65);
+  --glass-card-hover-bg: rgba(224, 231, 255, 0.8);
+  --glass-border: rgba(99, 102, 241, 0.15);
+  --glass-card-border: rgba(99, 102, 241, 0.08);
+  color-scheme: light;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: var(--scrollbar-track, #0f172a);
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: var(--scrollbar-thumb, #334155);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: var(--scrollbar-thumb-hover, #475569);
 }
 
 /* Glassmorphism utility classes */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.65);
+  background: var(--glass-panel-bg, rgba(15, 23, 42, 0.65));
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.08));
+  transition: background 0.4s ease, border-color 0.4s ease;
 }
 
 .glass-card {
-  background: rgba(30, 41, 59, 0.45);
+  background: var(--glass-card-bg, rgba(30, 41, 59, 0.45));
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-card-border, rgba(255, 255, 255, 0.05));
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
-  background: rgba(30, 41, 59, 0.6);
+  background: var(--glass-card-hover-bg, rgba(30, 41, 59, 0.6));
   border-color: rgba(99, 102, 241, 0.3);
   box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.2);
   transform: translateY(-2px);
@@ -107,9 +142,386 @@
 }
 
 body {
-  background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f0f17 50%, #03001e 100%);
-  color: #f8fafc;
+  background: var(--bg-primary, radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f0f17 50%, #03001e 100%));
+  color: var(--text-primary, #f8fafc);
   min-height: 100vh;
   font-family: var(--font-sans);
   overflow-x: hidden;
+  transition: background 0.5s ease, color 0.3s ease;
 }
+
+/* Theme Toggle Spin Animation */
+@keyframes theme-spin {
+  0%   { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+  100% { opacity: 1; transform: rotate(0deg) scale(1); }
+}
+
+.animate-theme-spin {
+  animation: theme-spin 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Light mode text overrides for Tailwind slate colors */
+.light .text-slate-300 { color: #475569; }
+.light .text-slate-400 { color: #64748b; }
+.light .text-slate-200 { color: #1e293b; }
+.light .text-slate-100 { color: #0f172a; }
+.light .text-white     { color: #0f172a; }
+.light .border-slate-800 { border-color: #cbd5e1; }
+.light .border-slate-700 { border-color: #94a3b8; }
+.light .bg-slate-900\/50 { background: rgba(255,255,255,0.7); }
+.light .bg-slate-900   { background: #f1f5f9; }
+
+/* ============================================
+   🚀 BUTTON ZOOM & PRESS EFFECTS
+   ============================================ */
+
+/* Universal interactive button — zoom on hover, press on click */
+.btn-zoom {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.2s ease,
+              filter 0.2s ease;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.btn-zoom:hover {
+  transform: scale(1.06) translateY(-1px);
+  box-shadow: 0 8px 25px -5px rgba(99, 102, 241, 0.35);
+  filter: brightness(1.08);
+}
+
+.btn-zoom:active {
+  transform: scale(0.96) translateY(1px);
+  box-shadow: 0 2px 8px -2px rgba(99, 102, 241, 0.2);
+  filter: brightness(0.95);
+  transition-duration: 0.08s;
+}
+
+/* ============================================
+   ✨ RIPPLE EFFECT ON CLICK
+   ============================================ */
+
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ripple-btn::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transition: width 0s, height 0s, opacity 0s;
+}
+
+.ripple-btn:active::before {
+  width: 250px;
+  height: 250px;
+  opacity: 0;
+  transition: width 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+/* ============================================
+   📄 PAGE ENTRY ANIMATION (fade + slide up)
+   ============================================ */
+
+@keyframes page-enter {
+  0%   { opacity: 0; transform: translateY(22px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-page-enter {
+  animation: page-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Staggered children — each child fades in 80ms apart */
+@keyframes fade-up {
+  0%   { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.stagger-children > * {
+  opacity: 0;
+  animation: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.stagger-children > *:nth-child(1)  { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2)  { animation-delay: 0.13s; }
+.stagger-children > *:nth-child(3)  { animation-delay: 0.21s; }
+.stagger-children > *:nth-child(4)  { animation-delay: 0.29s; }
+.stagger-children > *:nth-child(5)  { animation-delay: 0.37s; }
+.stagger-children > *:nth-child(6)  { animation-delay: 0.45s; }
+.stagger-children > *:nth-child(7)  { animation-delay: 0.53s; }
+.stagger-children > *:nth-child(8)  { animation-delay: 0.61s; }
+
+/* ============================================
+   💎 CARD HOVER LIFT WITH GLOW (enhanced)
+   ============================================ */
+
+.glass-card {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease,
+              background 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 20px 50px -15px rgba(99, 102, 241, 0.3),
+              0 0 0 1px rgba(99, 102, 241, 0.15);
+}
+
+/* ============================================
+   🌟 GRADIENT BORDER GLOW (animated border)
+   ============================================ */
+
+.glow-border {
+  position: relative;
+  border-radius: 1rem;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #6366f1, #a855f7, #38bdf8, #6366f1);
+  background-size: 300% 300%;
+  animation: border-rotate 4s linear infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-border:hover::before {
+  opacity: 1;
+}
+
+@keyframes border-rotate {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ============================================
+   ⚡ ICON BOUNCE ON HOVER
+   ============================================ */
+
+.icon-bounce svg,
+.icon-bounce .lucide {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.icon-bounce:hover svg,
+.icon-bounce:hover .lucide {
+  transform: scale(1.3) rotate(-8deg);
+}
+
+/* ============================================
+   🔴 SHAKE ANIMATION (for errors)
+   ============================================ */
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  15%       { transform: translateX(-6px); }
+  30%       { transform: translateX(6px); }
+  45%       { transform: translateX(-5px); }
+  60%       { transform: translateX(5px); }
+  75%       { transform: translateX(-3px); }
+  90%       { transform: translateX(3px); }
+}
+
+.animate-shake {
+  animation: shake 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* ============================================
+   💫 SHIMMER SKELETON LOADING
+   ============================================ */
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 25%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+/* ============================================
+   🏷️ BOUNCY BADGE / PILL
+   ============================================ */
+
+@keyframes badge-pop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  60%  { transform: scale(1.15); opacity: 1; }
+  80%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.animate-badge-pop {
+  animation: badge-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ============================================
+   📌 STAT COUNTER ZOOM
+   ============================================ */
+
+.stat-card {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: scale(1.04) translateY(-3px);
+  box-shadow: 0 16px 40px -12px rgba(99, 102, 241, 0.25);
+}
+
+/* ============================================
+   🔗 NAVBAR LINK UNDERLINE SLIDE
+   ============================================ */
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  border-radius: 99px;
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   ✅ FORM INPUT FOCUS GLOW
+   ============================================ */
+
+.input-glow {
+  transition: border-color 0.25s ease,
+              box-shadow 0.25s ease,
+              transform 0.2s ease;
+}
+
+.input-glow:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18),
+              0 0 12px rgba(99, 102, 241, 0.1);
+  transform: scale(1.01);
+  outline: none;
+}
+
+/* ============================================
+   🎭 FADE-IN SLIDE (general utility)
+   ============================================ */
+
+@keyframes fade-in {
+  0%   { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ============================================
+   🌊 HERO TEXT SHIMMER GRADIENT ANIMATE
+   ============================================ */
+
+.text-gradient {
+  background: linear-gradient(135deg, #c084fc 0%, #6366f1 35%, #38bdf8 65%, #c084fc 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ============================================
+   💥 GLOW-BTN ENHANCED (shimmer + zoom)
+   ============================================ */
+
+.glow-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.2s ease,
+              filter 0.2s ease;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.glow-btn:hover {
+  transform: scale(1.05) translateY(-1px);
+  filter: brightness(1.1);
+  box-shadow: 0 12px 30px -8px rgba(99, 102, 241, 0.5);
+}
+
+.glow-btn:active {
+  transform: scale(0.96);
+  filter: brightness(0.95);
+  transition-duration: 0.08s;
+}
+
+.glow-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.glow-btn:hover::after {
+  left: 130%;
+  opacity: 1;
+}
+
+/* ============================================
+   🌀 SPINNER
+   ============================================ */
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 0.9s linear infinite;
+}
+
+

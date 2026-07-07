@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Library, Menu, X, LogOut, User as UserIcon, BookOpen, LayoutDashboard } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
+import { Library, Menu, X, LogOut, User as UserIcon, BookOpen, LayoutDashboard, Sun, Moon } from 'lucide-react';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
+  const { isDark, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -81,10 +83,35 @@ const Navbar = () => {
               </Link>
             </>
           )}
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            className="relative w-9 h-9 flex items-center justify-center rounded-xl border border-slate-700 dark:border-slate-700 light:border-slate-300 bg-slate-900/50 dark:bg-slate-900/50 light:bg-white/70 hover:border-indigo-500/50 hover:bg-indigo-950/30 transition-all duration-300 cursor-pointer overflow-hidden group"
+          >
+            <span
+              key={isDark ? 'moon' : 'sun'}
+              className="absolute inset-0 flex items-center justify-center animate-theme-spin"
+            >
+              {isDark
+                ? <Moon className="h-4 w-4 text-indigo-300" />
+                : <Sun className="h-4 w-4 text-amber-400" />}
+            </span>
+          </button>
         </div>
 
         {/* Mobile menu toggle */}
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center space-x-2">
+          {/* Theme Toggle Mobile */}
+          <button
+            onClick={toggleTheme}
+            title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            className="relative w-9 h-9 flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/50 hover:border-indigo-500/50 transition-all duration-300 cursor-pointer overflow-hidden"
+          >
+            <span key={isDark ? 'moon-m' : 'sun-m'} className="absolute inset-0 flex items-center justify-center animate-theme-spin">
+              {isDark ? <Moon className="h-4 w-4 text-indigo-300" /> : <Sun className="h-4 w-4 text-amber-400" />}
+            </span>
+          </button>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-slate-400 hover:text-white focus:outline-none cursor-pointer"

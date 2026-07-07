@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { BookProvider } from './context/BookContext';
+import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
@@ -13,6 +14,7 @@ import AdminDashboard from './pages/AdminDashboard';
 
 function App() {
   return (
+    <ThemeProvider>
     <AuthProvider>
       <BookProvider>
         <Router>
@@ -63,6 +65,7 @@ function App() {
         </Router>
       </BookProvider>
     </AuthProvider>
+    </ThemeProvider>
   );
 }
 

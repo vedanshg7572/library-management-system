@@ -12,10 +12,10 @@ const Home = () => {
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-indigo-500/10 blur-[120px] animate-pulse-slow"></div>
       <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[350px] h-[350px] rounded-full bg-purple-500/10 blur-[100px] animate-pulse-slow"></div>
 
-      <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 flex-grow flex flex-col justify-center items-center text-center relative z-10">
+      <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 flex-grow flex flex-col justify-center items-center text-center relative z-10 animate-page-enter">
         
         {/* Header Badge */}
-        <div className="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/20 px-3.5 py-1.5 rounded-full text-indigo-300 text-xs font-semibold mb-8 animate-float">
+        <div className="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/20 px-3.5 py-1.5 rounded-full text-indigo-300 text-xs font-semibold mb-8 animate-float animate-badge-pop">
           <Sparkles className="h-3.5 w-3.5 text-indigo-400" />
           <span>Modern Library System v1.0</span>
         </div>
@@ -36,7 +36,7 @@ const Home = () => {
           {user ? (
             <Link
               to={user.role === 'admin' ? '/admin-dashboard' : '/student-dashboard'}
-              className="glow-btn flex items-center justify-center space-x-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold px-8 py-4 rounded-2xl w-full sm:w-auto shadow-lg shadow-indigo-600/30 text-sm transition-all"
+              className="glow-btn btn-zoom flex items-center justify-center space-x-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold px-8 py-4 rounded-2xl w-full sm:w-auto shadow-lg shadow-indigo-600/30 text-sm transition-all"
             >
               <span>Go to your Dashboard</span>
               <ArrowRight className="h-4.5 w-4.5" />
@@ -45,14 +45,14 @@ const Home = () => {
             <>
               <Link
                 to="/signup"
-                className="glow-btn flex items-center justify-center space-x-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold px-8 py-4 rounded-2xl w-full sm:w-auto shadow-lg shadow-indigo-600/30 text-sm transition-all"
+                className="glow-btn btn-zoom flex items-center justify-center space-x-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold px-8 py-4 rounded-2xl w-full sm:w-auto shadow-lg shadow-indigo-600/30 text-sm transition-all"
               >
                 <span>Get Started (Student)</span>
                 <ArrowRight className="h-4.5 w-4.5" />
               </Link>
               <Link
                 to="/login"
-                className="flex items-center justify-center bg-slate-900/60 border border-slate-800 hover:border-slate-700/80 text-slate-300 hover:text-white font-bold px-8 py-4 rounded-2xl w-full sm:w-auto text-sm transition-all"
+                className="btn-zoom flex items-center justify-center bg-slate-900/60 border border-slate-800 hover:border-slate-700/80 text-slate-300 hover:text-white font-bold px-8 py-4 rounded-2xl w-full sm:w-auto text-sm transition-all"
               >
                 Librarian Access
               </Link>
@@ -61,8 +61,8 @@ const Home = () => {
         </div>
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 w-full">
-          <div className="glass-card p-6 rounded-2xl text-left">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 w-full stagger-children">
+          <div className="glass-card glow-border p-6 rounded-2xl text-left">
             <div className="p-3 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-xl w-fit mb-4">
               <Zap className="h-5 w-5" />
             </div>
@@ -72,7 +72,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="glass-card p-6 rounded-2xl text-left">
+          <div className="glass-card glow-border p-6 rounded-2xl text-left">
             <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-xl w-fit mb-4">
               <ShieldCheck className="h-5 w-5" />
             </div>
@@ -82,7 +82,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="glass-card p-6 rounded-2xl text-left">
+          <div className="glass-card glow-border p-6 rounded-2xl text-left">
             <div className="p-3 bg-violet-500/10 border border-violet-500/20 text-violet-400 rounded-xl w-fit mb-4">
               <BookMarked className="h-5 w-5" />
             </div>
