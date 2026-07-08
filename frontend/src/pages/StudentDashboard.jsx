@@ -4,6 +4,7 @@ import { useBooks } from '../context/BookContext';
 import Sidebar from '../components/Sidebar';
 import StatCard from '../components/StatCard';
 import BookCard from '../components/BookCard';
+import SmartBookSearch from '../components/SmartBookSearch';
 import { 
   Search, 
   BookOpen, 
@@ -195,6 +196,12 @@ const StudentDashboard = () => {
               </div>
             </div>
           )}
+
+          {/* Smart Book Search */}
+          <SmartBookSearch
+            books={books}
+            onBorrow={handleBorrow}
+          />
 
           {/* Book Catalog Search & Filter Grid */}
           <div className="space-y-6">
