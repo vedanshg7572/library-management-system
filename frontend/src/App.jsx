@@ -11,16 +11,18 @@ import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import StudentDashboard from './pages/StudentDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import CustomCursor from './components/ui/custom-cursor';
 
 function App() {
   return (
     <ThemeProvider>
+      <CustomCursor />
     <AuthProvider>
       <BookProvider>
         <Router>
           <div className="min-h-screen flex flex-col">
             <Navbar />
-            <main className="flex-grow">
+            <main>
               <Routes>
                 {/* Public Routes */}
                 <Route path="/" element={<Home />} />

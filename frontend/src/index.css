@@ -148,7 +148,14 @@ body {
   font-family: var(--font-sans);
   overflow-x: hidden;
   transition: background 0.5s ease, color 0.3s ease;
+  cursor: none;
 }
+
+/* Hide default cursor everywhere */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
 
 /* Theme Toggle Spin Animation */
 @keyframes theme-spin {
