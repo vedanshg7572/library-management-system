@@ -44,8 +44,9 @@ const StudentDashboard = () => {
   const returnedCount = myTransactions.filter((t) => t.status === 'returned').length;
   const totalFines = activeBorrowings.reduce((sum, t) => sum + t.fine, 0);
 
-  // Genre Options
-  const genres = ['All', 'Fiction', 'Technology', 'Science'];
+  // Genre Options — dynamic from actual books
+  const genres = ['All', ...Array.from(new Set(books.map((b) => b.genre))).sort()];
+
 
   const handleBorrow = (bookId) => {
     setSuccessMsg('');
