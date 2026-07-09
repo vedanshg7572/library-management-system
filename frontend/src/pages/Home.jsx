@@ -18,115 +18,18 @@ import {
   Code2,
 } from 'lucide-react';
 import AetherFlowHero from '../components/ui/aether-flow-hero';
-import { HeroParallax } from '../components/ui/hero-parallax';
 
-/* ── Library-themed products for HeroParallax ─────────────── */
-const libraryProducts = [
-  {
-    title: 'Classic Literature',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=400&fit=crop',
-    badge: '📖 Fiction', subtitle: 'Timeless stories',
-    fallbackGradient: 'linear-gradient(135deg, #7c3aed, #4c1d95)', emoji: '📖',
-  },
-  {
-    title: 'Science & Discovery',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop',
-    badge: '🔬 Science', subtitle: 'Explore the universe',
-    fallbackGradient: 'linear-gradient(135deg, #06b6d4, #0891b2)', emoji: '🔬',
-  },
-  {
-    title: 'History & Culture',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&h=400&fit=crop',
-    badge: '🏛️ History', subtitle: 'Learn from the past',
-    fallbackGradient: 'linear-gradient(135deg, #f59e0b, #d97706)', emoji: '🏛️',
-  },
-  {
-    title: 'Self Improvement',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1456513080867-f67a29d37ed4?w=600&h=400&fit=crop',
-    badge: '💡 Self-Help', subtitle: 'Grow every day',
-    fallbackGradient: 'linear-gradient(135deg, #10b981, #059669)', emoji: '💡',
-  },
-  {
-    title: 'Technology & Code',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=600&h=400&fit=crop',
-    badge: '💻 Tech', subtitle: 'Build the future',
-    fallbackGradient: 'linear-gradient(135deg, #3b82f6, #1d4ed8)', emoji: '💻',
-  },
-  {
-    title: 'Philosophy & Thought',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&h=400&fit=crop',
-    badge: '🧠 Philosophy', subtitle: 'Think deeper',
-    fallbackGradient: 'linear-gradient(135deg, #8b5cf6, #6d28d9)', emoji: '🧠',
-  },
-  {
-    title: 'Biographies',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1532012197267-da1a852eb65b?w=600&h=400&fit=crop',
-    badge: '👤 Biography', subtitle: 'Inspiring lives',
-    fallbackGradient: 'linear-gradient(135deg, #f97316, #ea580c)', emoji: '👤',
-  },
-  {
-    title: 'Mathematics',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=600&h=400&fit=crop',
-    badge: '➕ Maths', subtitle: 'The language of universe',
-    fallbackGradient: 'linear-gradient(135deg, #ef4444, #dc2626)', emoji: '➕',
-  },
-  {
-    title: 'Economics & Finance',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1550399105-c4db5fb85c18?w=600&h=400&fit=crop',
-    badge: '💰 Economics', subtitle: 'Money & markets',
-    fallbackGradient: 'linear-gradient(135deg, #6366f1, #4f46e5)', emoji: '💰',
-  },
-  {
-    title: 'The Grand Library',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1442131394-8f33f93dc5e8?w=600&h=400&fit=crop',
-    badge: '🏛️ Library', subtitle: 'Thousands of books',
-    fallbackGradient: 'linear-gradient(135deg, #0f766e, #115e59)', emoji: '🏛️',
-  },
-  {
-    title: 'Pride & Prejudice',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&h=400&fit=crop',
-    badge: '📚 Classic', subtitle: 'Jane Austen',
-    fallbackGradient: 'linear-gradient(135deg, #be185d, #9d174d)', emoji: '📚',
-  },
-  {
-    title: 'Sherlock Holmes',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1547155616-554a957f4824?w=600&h=400&fit=crop',
-    badge: '🔍 Mystery', subtitle: 'Arthur Conan Doyle',
-    fallbackGradient: 'linear-gradient(135deg, #92400e, #78350f)', emoji: '🔍',
-  },
-  {
-    title: 'Atomic Habits',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1516979187789-746e4ecdb1b4?w=600&h=400&fit=crop',
-    badge: '⚡ Self-Help', subtitle: 'James Clear',
-    fallbackGradient: 'linear-gradient(135deg, #059669, #047857)', emoji: '⚡',
-  },
-  {
-    title: 'Cosmos',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&h=400&fit=crop',
-    badge: '🌌 Science', subtitle: 'Carl Sagan',
-    fallbackGradient: 'linear-gradient(135deg, #0ea5e9, #0284c7)', emoji: '🌌',
-  },
-  {
-    title: 'Reading Corner',
-    link: '/signup',
-    thumbnail: 'https://images.unsplash.com/photo-1588345921523-c2dcdb7f1e63?w=600&h=400&fit=crop',
-    badge: '☕ Cozy Read', subtitle: 'Find your spot',
-    fallbackGradient: 'linear-gradient(135deg, #d97706, #b45309)', emoji: '☕',
-  },
+
+/* ── Genre data for Explorer section ───────────────────────── */
+const genres = [
+  { emoji: '📖', name: 'Fiction',     desc: 'Novels, stories & imagination', count: '18+ books', from: '#7c3aed', to: '#4c1d95', glow: '#7c3aed' },
+  { emoji: '🔬', name: 'Science',     desc: 'Cosmos, biology & discovery',   count: '10+ books', from: '#06b6d4', to: '#0e7490', glow: '#06b6d4' },
+  { emoji: '💻', name: 'Technology',  desc: 'Code, AI & the digital world',  count: '12+ books', from: '#3b82f6', to: '#1d4ed8', glow: '#3b82f6' },
+  { emoji: '🏛️', name: 'History',    desc: 'Civilizations, wars & leaders', count: '8+ books',  from: '#f59e0b', to: '#b45309', glow: '#f59e0b' },
+  { emoji: '🌱', name: 'Self-Help',   desc: 'Habits, mindset & growth',      count: '10+ books', from: '#10b981', to: '#065f46', glow: '#10b981' },
+  { emoji: '➕', name: 'Mathematics', desc: 'Numbers, logic & patterns',      count: '6+ books',  from: '#ef4444', to: '#991b1b', glow: '#ef4444' },
+  { emoji: '👤', name: 'Biography',   desc: 'Lives that changed the world',  count: '14+ books', from: '#f97316', to: '#c2410c', glow: '#f97316' },
+  { emoji: '💰', name: 'Economics',   desc: 'Money, markets & finance',      count: '8+ books',  from: '#6366f1', to: '#3730a3', glow: '#6366f1' },
 ];
 
 // Stagger container
@@ -224,7 +127,140 @@ const colorMap = {
   },
 };
 
+
+/* ── Genre Explorer Component ───────────────────────────────── */
+const GenreExplorer = () => {
+  const { user } = useAuth();
+  const target = user ? '/student-dashboard' : '/signup';
+
+  return (
+    <section
+      className="relative py-24 px-6 overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, #03001e 0%, #07002e 50%, #03001e 100%)' }}
+    >
+      {/* Ambient background orbs */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-500/25 bg-amber-500/8 mb-5">
+            <span className="text-[10px] font-black text-amber-400 tracking-[0.2em] uppercase">Browse by Genre</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-4">
+            What will you read{' '}
+            <span className="bg-clip-text text-transparent"
+              style={{ backgroundImage: 'linear-gradient(120deg, #fbbf24, #f97316, #a78bfa)' }}>
+              today?
+            </span>
+          </h2>
+          <p className="text-slate-500 text-base max-w-lg mx-auto font-medium">
+            95+ books across 8 genres — classics, modern hits & everything in between.
+          </p>
+        </motion.div>
+
+        {/* Genre Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {genres.map((g, i) => (
+            <motion.div
+              key={g.name}
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6, scale: 1.03 }}
+            >
+              <Link to={target} className="group block h-full">
+                <div
+                  className="relative h-full p-5 rounded-2xl overflow-hidden transition-all duration-300"
+                  style={{
+                    background: `linear-gradient(145deg, ${g.from}18, ${g.to}28)`,
+                    border: `1px solid ${g.from}30`,
+                    boxShadow: `0 0 0 0 ${g.glow}00`,
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.boxShadow = `0 8px 40px -8px ${g.glow}60, 0 0 0 1px ${g.from}50`}
+                  onMouseLeave={e => e.currentTarget.style.boxShadow = `0 0 0 0 ${g.glow}00`}
+                >
+                  {/* Animated gradient top bar */}
+                  <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl"
+                    style={{ background: `linear-gradient(90deg, ${g.from}, ${g.to})` }} />
+
+                  {/* Glow orb behind emoji */}
+                  <div className="absolute top-4 left-4 w-14 h-14 rounded-full pointer-events-none transition-all duration-300"
+                    style={{ background: `radial-gradient(circle, ${g.glow}35 0%, transparent 70%)`, filter: 'blur(8px)' }} />
+
+                  {/* Emoji */}
+                  <div
+                    className="relative w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4 transition-transform duration-300 group-hover:scale-110"
+                    style={{ background: `linear-gradient(145deg, ${g.from}30, ${g.to}20)`, border: `1px solid ${g.from}40` }}
+                  >
+                    {g.emoji}
+                  </div>
+
+                  {/* Text */}
+                  <h3 className="font-extrabold text-white text-base mb-1 leading-tight">{g.name}</h3>
+                  <p className="text-slate-500 text-[11px] font-medium leading-relaxed mb-3 line-clamp-2">{g.desc}</p>
+
+                  {/* Footer */}
+                  <div className="flex items-center justify-between">
+                    <span
+                      className="text-[10px] font-bold px-2.5 py-1 rounded-full"
+                      style={{ background: `${g.from}20`, color: g.from, border: `1px solid ${g.from}30` }}
+                    >
+                      {g.count}
+                    </span>
+                    <motion.span
+                      className="text-[11px] font-bold flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                      style={{ color: g.from }}
+                    >
+                      Explore <ArrowRight className="h-3 w-3" />
+                    </motion.span>
+                  </div>
+
+                  {/* Corner sparkle */}
+                  <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-40 transition-opacity pointer-events-none">
+                    <Sparkles className="h-4 w-4" style={{ color: g.from }} />
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="text-center mt-12"
+        >
+          <Link
+            to={target}
+            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl font-bold text-sm text-white shadow-2xl transition-all hover:scale-105"
+            style={{ background: 'linear-gradient(135deg, #f59e0b, #f97316, #7c3aed)', boxShadow: '0 8px 32px rgba(124,58,237,0.4)' }}
+          >
+            <BookOpen className="h-4 w-4" />
+            Browse All 95+ Books
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 const Home = () => {
+
   const { user } = useAuth();
 
   return (
@@ -232,8 +268,8 @@ const Home = () => {
       {/* ── Main Hero ──────────────────────────────────────── */}
       <AetherFlowHero />
 
-      {/* ── HeroParallax — Book Categories Showcase ──────── */}
-      <HeroParallax products={libraryProducts} />
+      {/* ── Genre Explorer ────────────────────────────────── */}
+      <GenreExplorer />
 
       {/* ============ FEATURES SECTION ============ */}
       <section className="relative bg-[#03001e] py-28 px-6 overflow-hidden">
