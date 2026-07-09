@@ -3,9 +3,10 @@ import { useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { AnimatedDock } from './animated-dock';
 import {
-  Home, BookOpen, User, Github, LayoutDashboard,
+  Home, BookOpen, User, GitBranch, LayoutDashboard,
   LogIn, LogOut, ShieldCheck
 } from 'lucide-react';
+
 
 /* ── Floating dock — visible on all pages ─────────────────── */
 const FloatingDock = () => {
@@ -56,9 +57,10 @@ const FloatingDock = () => {
       label: 'GitHub @vedanshg7572',
       link: 'https://github.com/vedanshg7572',
       target: '_blank',
-      Icon: <Github size={18} />,
+      Icon: <GitBranch size={18} />,
       active: false,
     },
+
 
     // Logout — only when logged in
     ...(user
