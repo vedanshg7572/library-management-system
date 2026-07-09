@@ -4,7 +4,8 @@ const Book = require('./models/Book');
 
 dotenv.config();
 
-const defaultBooks = [
+const books = [
+
   // ── TECHNOLOGY ──────────────────────────────────────────────
   {
     title: 'Clean Code: A Handbook of Agile Software Craftsmanship',
@@ -13,7 +14,10 @@ const defaultBooks = [
     genre: 'Technology',
     quantity: 5,
     availableCopies: 5,
-    shelfLocation: 'Aisle A-1'
+    shelfLocation: 'Aisle A-1',
+    description: 'A revolutionary approach to writing code that is easy to read, understand, and maintain. Robert C. Martin shares best practices and principles for crafting software that is clean, efficient, and professional. This book is essential reading for any developer who wants to improve their craft.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Pragmatic Programmer',
@@ -22,7 +26,10 @@ const defaultBooks = [
     genre: 'Technology',
     quantity: 4,
     availableCopies: 4,
-    shelfLocation: 'Aisle A-1'
+    shelfLocation: 'Aisle A-1',
+    description: 'A timeless guide for software developers that covers practical advice on everything from personal responsibility and career development to architectural techniques for keeping your code flexible and easy to adapt. The authors use short, thought-provoking anecdotes to illustrate their ideas.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Design Patterns: Elements of Reusable Object-Oriented Software',
@@ -31,7 +38,10 @@ const defaultBooks = [
     genre: 'Technology',
     quantity: 4,
     availableCopies: 3,
-    shelfLocation: 'Aisle A-2'
+    shelfLocation: 'Aisle A-2',
+    description: 'The definitive book on design patterns, capturing solutions to commonly occurring problems in software design. Written by the "Gang of Four," it introduced 23 foundational patterns that have become a standard vocabulary for object-oriented design. An indispensable reference for software engineers.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Introduction to Algorithms',
@@ -40,16 +50,22 @@ const defaultBooks = [
     genre: 'Technology',
     quantity: 6,
     availableCopies: 6,
-    shelfLocation: 'Aisle A-2'
+    shelfLocation: 'Aisle A-2',
+    description: 'Widely used as a university textbook and a professional reference, this comprehensive guide covers a broad range of algorithms in depth. Each chapter is relatively self-contained and presents an algorithm, a design technique, an application area, or a related topic. A must-have for computer science students and practitioners.',
+    readOnline: false,
+    language: 'English'
   },
   {
-    title: 'You Don\'t Know JS: Up & Going',
+    title: "You Don't Know JS: Up & Going",
     author: 'Kyle Simpson',
     ISBN: '978-1491924464',
     genre: 'Technology',
     quantity: 5,
     availableCopies: 5,
-    shelfLocation: 'Aisle A-3'
+    shelfLocation: 'Aisle A-3',
+    description: 'The first book in a series that dives deep into the core mechanisms of the JavaScript language. Kyle Simpson explores the fundamentals that many developers overlook, offering a clear and thorough understanding of types, grammar, scope, and closures. An essential foundation for any serious JavaScript developer.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Python Crash Course',
@@ -58,7 +74,10 @@ const defaultBooks = [
     genre: 'Technology',
     quantity: 7,
     availableCopies: 6,
-    shelfLocation: 'Aisle A-3'
+    shelfLocation: 'Aisle A-3',
+    description: 'A fast-paced, thorough introduction to Python that teaches you the language in the first half, then has you write three substantial programs in the second half. It covers the basics of Python programming along with hands-on projects, making it ideal for beginners who want to learn by doing.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Cracking the Coding Interview',
@@ -67,16 +86,22 @@ const defaultBooks = [
     genre: 'Technology',
     quantity: 5,
     availableCopies: 4,
-    shelfLocation: 'Aisle A-4'
+    shelfLocation: 'Aisle A-4',
+    description: 'The definitive guide to technical interviews at top technology companies, featuring 189 programming questions and solutions. This book covers data structures, algorithms, and concepts that commonly appear in technical interviews at companies like Google, Amazon, and Facebook. An indispensable resource for anyone preparing for a software engineering role.',
+    readOnline: false,
+    language: 'English'
   },
   {
-    title: 'The Web Application Hacker\'s Handbook',
+    title: "The Web Application Hacker's Handbook",
     author: 'Dafydd Stuttard',
     ISBN: '978-1118026472',
     genre: 'Technology',
     quantity: 3,
     availableCopies: 3,
-    shelfLocation: 'Aisle A-4'
+    shelfLocation: 'Aisle A-4',
+    description: 'A comprehensive guide to finding and exploiting security flaws in web applications. The authors walk through the entire lifecycle of a web application attack, from reconnaissance to exploitation to post-exploitation. Essential reading for security professionals and developers who want to build more secure web applications.',
+    readOnline: false,
+    language: 'English'
   },
 
   // ── FICTION ─────────────────────────────────────────────────
@@ -87,7 +112,10 @@ const defaultBooks = [
     genre: 'Fiction',
     quantity: 8,
     availableCopies: 7,
-    shelfLocation: 'Aisle B-1'
+    shelfLocation: 'Aisle B-1',
+    description: 'The beloved prequel to The Lord of the Rings, following the reluctant hobbit Bilbo Baggins on an epic quest to reclaim a treasure guarded by the dragon Smaug. Tolkien crafted a richly detailed world of dwarves, elves, wizards, and dragons in this timeless adventure. A foundational work of modern fantasy literature.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'To Kill a Mockingbird',
@@ -96,7 +124,10 @@ const defaultBooks = [
     genre: 'Fiction',
     quantity: 6,
     availableCopies: 6,
-    shelfLocation: 'Aisle B-1'
+    shelfLocation: 'Aisle B-1',
+    description: "A Pulitzer Prize-winning masterpiece that explores racial injustice and the loss of innocence in the American South through the eyes of young Scout Finch. Her father, lawyer Atticus Finch, defends a Black man falsely accused of a terrible crime, becoming a moral hero for generations of readers. The novel remains one of America's most beloved and enduring stories.",
+    readOnline: false,
+    language: 'English'
   },
   {
     title: '1984',
@@ -105,7 +136,10 @@ const defaultBooks = [
     genre: 'Fiction',
     quantity: 7,
     availableCopies: 5,
-    shelfLocation: 'Aisle B-2'
+    shelfLocation: 'Aisle B-2',
+    description: "A chilling dystopian novel set in a totalitarian future where Big Brother watches every move and independent thought is a crime. Winston Smith works for the Ministry of Truth, rewriting history to match the Party's ever-changing narrative, and secretly dreams of rebellion. Orwell's prophetic masterpiece gave the world terms like 'doublethink' and 'thoughtcrime' that resonate powerfully today.",
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Great Gatsby',
@@ -114,16 +148,22 @@ const defaultBooks = [
     genre: 'Fiction',
     quantity: 5,
     availableCopies: 5,
-    shelfLocation: 'Aisle B-2'
+    shelfLocation: 'Aisle B-2',
+    description: 'A lyrical portrait of the Jazz Age and the American Dream told through the eyes of Nick Carraway, who becomes entangled in the glamorous but ultimately tragic world of the mysterious millionaire Jay Gatsby. Gatsby throws lavish parties in hopes of winning back his lost love, Daisy Buchanan. The novel is a piercing critique of the emptiness behind wealth and status.',
+    readOnline: false,
+    language: 'English'
   },
   {
-    title: 'Harry Potter and the Philosopher\'s Stone',
+    title: "Harry Potter and the Philosopher's Stone",
     author: 'J.K. Rowling',
     ISBN: '978-0439708180',
     genre: 'Fiction',
     quantity: 10,
     availableCopies: 8,
-    shelfLocation: 'Aisle B-3'
+    shelfLocation: 'Aisle B-3',
+    description: 'The magical first chapter in the beloved Harry Potter series, introducing orphan Harry who discovers on his eleventh birthday that he is a wizard destined for greatness. He enters Hogwarts School of Witchcraft and Wizardry, makes lifelong friends, and confronts the dark wizard who killed his parents. A global phenomenon that ignited a love of reading in millions of children and adults alike.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Alchemist',
@@ -132,7 +172,10 @@ const defaultBooks = [
     genre: 'Fiction',
     quantity: 6,
     availableCopies: 6,
-    shelfLocation: 'Aisle B-3'
+    shelfLocation: 'Aisle B-3',
+    description: 'A philosophical novel about Santiago, an Andalusian shepherd boy who travels from Spain to Egypt in search of a treasure buried near the Pyramids. Along the way, he meets a series of guides who teach him to listen to his heart and pursue his Personal Legend. One of the best-selling books in history, it has been translated into over 80 languages.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Pride and Prejudice',
@@ -141,7 +184,10 @@ const defaultBooks = [
     genre: 'Fiction',
     quantity: 5,
     availableCopies: 4,
-    shelfLocation: 'Aisle B-4'
+    shelfLocation: 'Aisle B-4',
+    description: "Jane Austen's most beloved novel follows the spirited Elizabeth Bennet as she navigates questions of manners, morality, and marriage in 19th-century England. Her witty battle of wills with the proud Mr. Darcy is one of literature's greatest love stories. A sharp social comedy that remains astonishingly modern and entertaining.",
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Catcher in the Rye',
@@ -150,7 +196,10 @@ const defaultBooks = [
     genre: 'Fiction',
     quantity: 4,
     availableCopies: 4,
-    shelfLocation: 'Aisle B-4'
+    shelfLocation: 'Aisle B-4',
+    description: 'The quintessential novel of teenage angst and alienation, narrated by the iconic and rebellious Holden Caulfield after he is expelled from his prestigious prep school. Wandering New York City, he rails against the "phoniness" of the adult world while searching for authenticity and connection. A controversial and enduring landmark of American literature.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Animal Farm',
@@ -159,7 +208,10 @@ const defaultBooks = [
     genre: 'Fiction',
     quantity: 6,
     availableCopies: 6,
-    shelfLocation: 'Aisle B-5'
+    shelfLocation: 'Aisle B-5',
+    description: 'A satirical allegory in which farm animals overthrow their human farmer, only to find that their new leaders—the pigs—are just as tyrannical as the old ones. Orwell uses the fable to critique the corruption of the Soviet Union under Stalin and the broader dangers of totalitarianism. Despite its brevity, it remains one of the most powerful political novels ever written.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Brave New World',
@@ -168,7 +220,10 @@ const defaultBooks = [
     genre: 'Fiction',
     quantity: 4,
     availableCopies: 3,
-    shelfLocation: 'Aisle B-5'
+    shelfLocation: 'Aisle B-5',
+    description: 'A dystopian novel set in a genetically engineered future where citizens are kept content through pleasure, consumerism, and a drug called Soma, with no room for individuality or true freedom. When a man from a Savage Reservation enters this "utopia," the clash of values creates a deeply unsettling meditation on humanity. Huxley\'s vision of a comfortable, complacent dystopia feels eerily prescient today.',
+    readOnline: false,
+    language: 'English'
   },
 
   // ── SCIENCE ─────────────────────────────────────────────────
@@ -179,7 +234,10 @@ const defaultBooks = [
     genre: 'Science',
     quantity: 3,
     availableCopies: 3,
-    shelfLocation: 'Aisle C-1'
+    shelfLocation: 'Aisle C-1',
+    description: "Stephen Hawking's landmark work makes the complex world of cosmology, black holes, and the Big Bang accessible to the general reader. The book explores the nature of time and the possibility of a unifying theory of the universe, covering topics from the Big Bang to the possibility of a 'theory of everything.' A global bestseller that transformed the way millions of people think about the cosmos.",
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Selfish Gene',
@@ -188,7 +246,10 @@ const defaultBooks = [
     genre: 'Science',
     quantity: 4,
     availableCopies: 4,
-    shelfLocation: 'Aisle C-1'
+    shelfLocation: 'Aisle C-1',
+    description: 'A groundbreaking work in evolutionary biology that reframes evolution from the perspective of the gene rather than the organism or species. Dawkins argues that genes are the fundamental units of selection and that organisms are merely "survival machines" built to propagate them. The book also introduced the concept of the "meme," a cultural equivalent of the gene.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Sapiens: A Brief History of Humankind',
@@ -197,7 +258,10 @@ const defaultBooks = [
     genre: 'Science',
     quantity: 5,
     availableCopies: 4,
-    shelfLocation: 'Aisle C-2'
+    shelfLocation: 'Aisle C-2',
+    description: 'A sweeping history of humanity that challenges our most basic assumptions about what makes us human, tracing our journey from insignificant apes to the rulers of the world. Harari explores the Cognitive, Agricultural, and Scientific Revolutions that shaped our species. A provocative and thought-provoking narrative that has become a global bestseller.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Origin of Species',
@@ -206,7 +270,10 @@ const defaultBooks = [
     genre: 'Science',
     quantity: 3,
     availableCopies: 3,
-    shelfLocation: 'Aisle C-2'
+    shelfLocation: 'Aisle C-2',
+    description: 'The foundational work of evolutionary biology, in which Darwin presents his theory of natural selection—the process by which species evolve over generations through the survival of the fittest. Published in 1859, it is one of the most important scientific works ever written, fundamentally changing our understanding of life on Earth. Its implications continue to reverberate through biology, philosophy, and theology.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Cosmos',
@@ -215,7 +282,10 @@ const defaultBooks = [
     genre: 'Science',
     quantity: 4,
     availableCopies: 4,
-    shelfLocation: 'Aisle C-3'
+    shelfLocation: 'Aisle C-3',
+    description: "Carl Sagan's eloquent and awe-inspiring exploration of the universe and humanity's place within it, companion to the landmark television series of the same name. He traverses the cosmic calendar, the evolution of stars, and the search for extraterrestrial intelligence with his signature poetic clarity. A celebration of science, curiosity, and the wonder of existence.",
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Gene: An Intimate History',
@@ -224,7 +294,10 @@ const defaultBooks = [
     genre: 'Science',
     quantity: 3,
     availableCopies: 2,
-    shelfLocation: 'Aisle C-3'
+    shelfLocation: 'Aisle C-3',
+    description: 'A brilliant and sweeping history of the gene, from Mendel\'s peas to the cutting-edge CRISPR technology of today, examining the profound and sometimes troubling implications of our growing power to manipulate the genetic code. Mukherjee weaves together science, history, and personal narrative to tell the story of one of humanity\'s greatest and most dangerous discoveries. Winner of the Pulitzer Prize.',
+    readOnline: false,
+    language: 'English'
   },
 
   // ── HISTORY ─────────────────────────────────────────────────
@@ -235,7 +308,10 @@ const defaultBooks = [
     genre: 'History',
     quantity: 4,
     availableCopies: 4,
-    shelfLocation: 'Aisle D-1'
+    shelfLocation: 'Aisle D-1',
+    description: 'A Pulitzer Prize-winning examination of why certain civilizations came to dominate others, arguing that geography and environment, not racial or cultural superiority, determined the fates of nations. Diamond traces how food production, domesticated animals, and technology spread across continents. A provocative challenge to conventional explanations of global inequality.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Diary of a Young Girl',
@@ -244,7 +320,10 @@ const defaultBooks = [
     genre: 'History',
     quantity: 6,
     availableCopies: 5,
-    shelfLocation: 'Aisle D-1'
+    shelfLocation: 'Aisle D-1',
+    description: 'The moving and profoundly humane diary kept by a Jewish teenager hiding from the Nazis in a secret annex in Amsterdam during World War II. Anne Frank recorded her innermost thoughts, fears, and hopes over more than two years until she was discovered and sent to a concentration camp. One of the most widely read and moving accounts of the Holocaust ever written.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Homo Deus: A Brief History of Tomorrow',
@@ -253,7 +332,10 @@ const defaultBooks = [
     genre: 'History',
     quantity: 4,
     availableCopies: 4,
-    shelfLocation: 'Aisle D-2'
+    shelfLocation: 'Aisle D-2',
+    description: "The provocative follow-up to Sapiens, exploring what might happen to humanity in the next century as we pursue the ultimate goals of immortality, happiness, and divine power. Harari examines how technologies like artificial intelligence and genetic engineering will reshape human society and what it means to be human. A bold and unsettling vision of our possible future.",
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Story of Civilization',
@@ -262,7 +344,10 @@ const defaultBooks = [
     genre: 'History',
     quantity: 3,
     availableCopies: 3,
-    shelfLocation: 'Aisle D-2'
+    shelfLocation: 'Aisle D-2',
+    description: 'An ambitious, eleven-volume masterwork covering the history of Western civilization from ancient times to the era of Napoleon. Will Durant and his wife Ariel spent decades researching and writing this monumental work, making complex history accessible and engaging for general readers. A towering achievement in historical scholarship and narrative writing.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'India After Gandhi',
@@ -271,7 +356,10 @@ const defaultBooks = [
     genre: 'History',
     quantity: 5,
     availableCopies: 5,
-    shelfLocation: 'Aisle D-3'
+    shelfLocation: 'Aisle D-3',
+    description: 'A comprehensive and richly detailed history of the world\'s largest democracy from Independence in 1947 to the present day, covering the extraordinary challenges of building a unified nation from such immense diversity. Guha draws on a vast range of sources to paint a vivid picture of Indian politics, society, culture, and conflict. Widely considered the definitive history of modern India.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Freedom at Midnight',
@@ -280,7 +368,10 @@ const defaultBooks = [
     genre: 'History',
     quantity: 4,
     availableCopies: 3,
-    shelfLocation: 'Aisle D-3'
+    shelfLocation: 'Aisle D-3',
+    description: "A gripping narrative account of the last year of British rule in India and the tumultuous transfer of power that led to Indian and Pakistani independence. Collins and Lapierre bring to life the key figures of the era, including Mountbatten, Gandhi, Nehru, and Jinnah, in vivid, novelistic detail. A classic of popular history that reads with the urgency of a thriller.",
+    readOnline: false,
+    language: 'English'
   },
 
   // ── SELF-HELP ────────────────────────────────────────────────
@@ -291,7 +382,10 @@ const defaultBooks = [
     genre: 'Self-Help',
     quantity: 8,
     availableCopies: 6,
-    shelfLocation: 'Aisle E-1'
+    shelfLocation: 'Aisle E-1',
+    description: 'A practical and science-backed guide to building good habits and breaking bad ones, arguing that tiny changes compound into remarkable results over time. James Clear introduces a four-step framework—cue, craving, response, reward—for understanding and redesigning any habit. An incredibly useful and actionable book that has transformed millions of lives.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Deep Work',
@@ -300,7 +394,10 @@ const defaultBooks = [
     genre: 'Self-Help',
     quantity: 5,
     availableCopies: 5,
-    shelfLocation: 'Aisle E-1'
+    shelfLocation: 'Aisle E-1',
+    description: 'A persuasive argument that the ability to focus without distraction on cognitively demanding tasks is becoming increasingly rare and valuable in our modern economy. Newport distinguishes "deep work" from the shallow, distracted busyness that fills most people\'s days and provides practical strategies for cultivating intense focus. Essential reading for knowledge workers who want to produce their best work.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The 7 Habits of Highly Effective People',
@@ -309,7 +406,10 @@ const defaultBooks = [
     genre: 'Self-Help',
     quantity: 6,
     availableCopies: 4,
-    shelfLocation: 'Aisle E-2'
+    shelfLocation: 'Aisle E-2',
+    description: "One of the most influential business and self-help books ever written, presenting a principle-centered approach for solving personal and professional problems. Covey's seven habits move from dependence to independence to interdependence, offering a timeless framework for personal effectiveness. Over 40 million copies have been sold worldwide.",
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Think and Grow Rich',
@@ -318,7 +418,10 @@ const defaultBooks = [
     genre: 'Self-Help',
     quantity: 5,
     availableCopies: 5,
-    shelfLocation: 'Aisle E-2'
+    shelfLocation: 'Aisle E-2',
+    description: 'A classic motivational book based on Napoleon Hill\'s study of over 500 self-made millionaires, distilling their philosophy of success into 13 principles. It explores the power of desire, faith, and the subconscious mind in achieving financial and personal goals. One of the best-selling books of all time, it has inspired generations of entrepreneurs and achievers.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'How to Win Friends and Influence People',
@@ -327,7 +430,10 @@ const defaultBooks = [
     genre: 'Self-Help',
     quantity: 6,
     availableCopies: 5,
-    shelfLocation: 'Aisle E-3'
+    shelfLocation: 'Aisle E-3',
+    description: "The groundbreaking guide to interpersonal skills that has sold over 30 million copies since its first publication in 1936. Carnegie's timeless advice on how to make people like you, win people to your way of thinking, and become a better leader remains as relevant today as it was over 80 years ago. One of the first and most enduring self-help books ever written.",
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Power of Now',
@@ -336,7 +442,10 @@ const defaultBooks = [
     genre: 'Self-Help',
     quantity: 4,
     availableCopies: 4,
-    shelfLocation: 'Aisle E-3'
+    shelfLocation: 'Aisle E-3',
+    description: 'A transformative spiritual guide that teaches readers to transcend the ego-mind and live fully in the present moment, the only place where true peace and joy can be found. Tolle draws on the teachings of various spiritual traditions to present a simple but profound message about the nature of consciousness. A book that has deeply impacted millions of readers worldwide.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Rich Dad Poor Dad',
@@ -345,7 +454,10 @@ const defaultBooks = [
     genre: 'Self-Help',
     quantity: 7,
     availableCopies: 6,
-    shelfLocation: 'Aisle E-4'
+    shelfLocation: 'Aisle E-4',
+    description: "A personal finance classic told through the contrasting philosophies of Kiyosaki's two 'dads'—his educated but financially struggling biological father, and his friend's uneducated but wealthy father. The book challenges conventional wisdom about money, advocating for financial literacy, investing in assets, and building passive income streams. It has sparked a financial revolution in the way millions of people think about wealth.",
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Ikigai: The Japanese Secret to a Long Life',
@@ -354,18 +466,24 @@ const defaultBooks = [
     genre: 'Self-Help',
     quantity: 5,
     availableCopies: 5,
-    shelfLocation: 'Aisle E-4'
+    shelfLocation: 'Aisle E-4',
+    description: "A beautiful and inspiring guide to finding your ikigai—your reason for being—the Japanese concept that gives life meaning, purpose, and joy. The authors explore how the people of Okinawa, one of the world's longest-living communities, have found their ikigai through work, diet, friendship, and an active lifestyle. A gentle and profound book about living a fulfilling and purposeful life.",
+    readOnline: false,
+    language: 'English'
   },
 
   // ── MATHEMATICS ─────────────────────────────────────────────
   {
-    title: 'Fermat\'s Last Theorem',
+    title: "Fermat's Last Theorem",
     author: 'Simon Singh',
     ISBN: '978-1857025217',
     genre: 'Mathematics',
     quantity: 3,
     availableCopies: 3,
-    shelfLocation: 'Aisle F-1'
+    shelfLocation: 'Aisle F-1',
+    description: "The thrilling account of Andrew Wiles's ten-year quest to prove Fermat's Last Theorem, a problem that stumped mathematicians for over 350 years. Singh brilliantly communicates the beauty and drama of pure mathematics for a general audience, weaving together the history of the problem with the story of Wiles's obsessive and solitary struggle. A masterpiece of science writing.",
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Man Who Knew Infinity',
@@ -374,7 +492,10 @@ const defaultBooks = [
     genre: 'Mathematics',
     quantity: 4,
     availableCopies: 4,
-    shelfLocation: 'Aisle F-1'
+    shelfLocation: 'Aisle F-1',
+    description: 'The extraordinary biography of Srinivasa Ramanujan, the self-taught mathematical genius from India who, with almost no formal training, made extraordinary contributions to mathematical analysis, number theory, and infinite series. Kanigel traces his improbable journey from Madras to Cambridge and his celebrated collaboration with the British mathematician G.H. Hardy. An inspiring story of talent, determination, and the universal language of mathematics.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Mathematics for the Million',
@@ -383,7 +504,10 @@ const defaultBooks = [
     genre: 'Mathematics',
     quantity: 3,
     availableCopies: 3,
-    shelfLocation: 'Aisle F-2'
+    shelfLocation: 'Aisle F-2',
+    description: 'A classic work that demystifies mathematics by showing how it grew as a practical tool for solving real-world problems throughout history. Hogben takes the reader on a journey from counting to calculus in a way that is engaging, accessible, and informative. Originally published in 1936, it remains one of the best introductions to mathematics for the general reader.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'How to Solve It',
@@ -392,7 +516,10 @@ const defaultBooks = [
     genre: 'Mathematics',
     quantity: 4,
     availableCopies: 4,
-    shelfLocation: 'Aisle F-2'
+    shelfLocation: 'Aisle F-2',
+    description: "A timeless guide to mathematical problem-solving that introduces Pólya's famous four-step method: understand the problem, devise a plan, carry out the plan, and look back. The book is filled with heuristics and strategies applicable to any area of mathematics, and its principles are broadly useful for any kind of analytical thinking. Beloved by students, educators, and mathematicians alike.",
+    readOnline: false,
+    language: 'English'
   },
 
   // ── BIOGRAPHY ───────────────────────────────────────────────
@@ -403,7 +530,10 @@ const defaultBooks = [
     genre: 'Biography',
     quantity: 5,
     availableCopies: 4,
-    shelfLocation: 'Aisle G-1'
+    shelfLocation: 'Aisle G-1',
+    description: 'The definitive biography of Apple co-founder Steve Jobs, based on over forty interviews with Jobs himself, as well as interviews with more than a hundred family members, friends, adversaries, competitors, and colleagues. Isaacson paints a nuanced portrait of the brilliant, passionate, and sometimes brutal innovator who transformed six industries: personal computers, animated movies, music, phones, tablet computing, and digital publishing. An essential read for anyone who wants to understand the modern technology industry.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Elon Musk',
@@ -412,7 +542,10 @@ const defaultBooks = [
     genre: 'Biography',
     quantity: 6,
     availableCopies: 5,
-    shelfLocation: 'Aisle G-1'
+    shelfLocation: 'Aisle G-1',
+    description: "Walter Isaacson's riveting account of Elon Musk's turbulent life and relentless drive to revolutionize industries from electric vehicles and space exploration to social media and artificial intelligence. Based on two years of access to Musk and over 200 interviews with friends, family, and colleagues, the book explores the psychology and demons that drive the world's most controversial entrepreneur. A compelling portrait of a man reshaping the future.",
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Wings of Fire',
@@ -421,7 +554,10 @@ const defaultBooks = [
     genre: 'Biography',
     quantity: 8,
     availableCopies: 7,
-    shelfLocation: 'Aisle G-2'
+    shelfLocation: 'Aisle G-2',
+    description: 'The inspiring autobiography of A.P.J. Abdul Kalam, the renowned aerospace scientist who went on to become the 11th President of India. He recounts his humble beginnings in a small town in Tamil Nadu, his passion for science, and his pivotal role in developing India\'s missile and nuclear programs. A motivational story of perseverance, patriotism, and scientific achievement.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Story of My Experiments with Truth',
@@ -430,7 +566,10 @@ const defaultBooks = [
     genre: 'Biography',
     quantity: 5,
     availableCopies: 5,
-    shelfLocation: 'Aisle G-2'
+    shelfLocation: 'Aisle G-2',
+    description: "Mahatma Gandhi's own account of his life and the spiritual and political journey that made him the father of the Indian nation and one of history's greatest moral leaders. He describes his experiments with truth, nonviolence, and self-discipline with remarkable candor, from his childhood in Gujarat to his campaigns for civil rights in South Africa and ultimately Indian independence. A profound and deeply moving spiritual autobiography.",
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Long Walk to Freedom',
@@ -439,7 +578,10 @@ const defaultBooks = [
     genre: 'Biography',
     quantity: 4,
     availableCopies: 3,
-    shelfLocation: 'Aisle G-3'
+    shelfLocation: 'Aisle G-3',
+    description: 'The monumental autobiography of Nelson Mandela, one of the great moral and political leaders of the twentieth century, telling his story from his rural boyhood through his long imprisonment on Robben Island to his inauguration as the first democratically elected president of South Africa. Mandela writes with grace, dignity, and a remarkable absence of bitterness about his extraordinary life. A testament to the resilience of the human spirit and the triumph of justice.',
+    readOnline: false,
+    language: 'English'
   },
 
   // ── ECONOMICS ───────────────────────────────────────────────
@@ -450,7 +592,10 @@ const defaultBooks = [
     genre: 'Economics',
     quantity: 4,
     availableCopies: 4,
-    shelfLocation: 'Aisle H-1'
+    shelfLocation: 'Aisle H-1',
+    description: 'A fascinating and unconventional look at the hidden side of everything, using economic tools and analysis to explore unexpected connections—like the link between the legalization of abortion and the drop in crime rates. Levitt and Dubner argue that morality represents the way people would like the world to work, while economics reveals how it actually does work. An entertaining and thought-provoking challenge to conventional wisdom.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Wealth of Nations',
@@ -459,7 +604,10 @@ const defaultBooks = [
     genre: 'Economics',
     quantity: 3,
     availableCopies: 3,
-    shelfLocation: 'Aisle H-1'
+    shelfLocation: 'Aisle H-1',
+    description: 'The foundational text of modern economics, published in 1776, in which Adam Smith introduces the concept of the invisible hand and argues that free markets, driven by self-interest, lead to economic prosperity and the wealth of nations. Smith analyzes the division of labor, the nature of markets, and the role of government in the economy with profound insight. A landmark in intellectual history that continues to shape economic and political thought.',
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'Thinking, Fast and Slow',
@@ -468,7 +616,10 @@ const defaultBooks = [
     genre: 'Economics',
     quantity: 5,
     availableCopies: 4,
-    shelfLocation: 'Aisle H-2'
+    shelfLocation: 'Aisle H-2',
+    description: "Nobel laureate Daniel Kahneman's groundbreaking synthesis of decades of research on cognitive biases and decision-making, exploring the two systems that drive the way we think: the fast, intuitive System 1 and the slower, more deliberate System 2. The book reveals the surprising ways our judgments and choices are influenced by cognitive errors and biases. An essential read for understanding how the human mind really works.",
+    readOnline: false,
+    language: 'English'
   },
   {
     title: 'The Lean Startup',
@@ -477,24 +628,599 @@ const defaultBooks = [
     genre: 'Economics',
     quantity: 4,
     availableCopies: 4,
-    shelfLocation: 'Aisle H-2'
+    shelfLocation: 'Aisle H-2',
+    description: "A revolutionary approach to building and launching new businesses that relies on validated learning, rapid experimentation, and iterative product releases to shorten product development cycles. Ries introduces concepts like the Minimum Viable Product (MVP) and the Build-Measure-Learn feedback loop that have become standard tools in the startup world. An essential guide for entrepreneurs and innovators.",
+    readOnline: false,
+    language: 'English'
   },
+
+  // ── PROJECT GUTENBERG CLASSICS (Free Ebooks) ─────────────────
+  {
+    title: 'Pride and Prejudice',
+    author: 'Jane Austen',
+    ISBN: 'GUTENBERG-1342',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "One of the most beloved novels in the English language, following the witty and independent Elizabeth Bennet as she navigates love, family, and society in Regency-era England. Her sparring relationship with the proud and wealthy Mr. Darcy evolves from mutual disdain into one of literature's greatest romances. Austen's sharp social satire and unforgettable characters have enchanted readers for over two centuries.",
+    gutenbergId: 1342,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: "Alice's Adventures in Wonderland",
+    author: 'Lewis Carroll',
+    ISBN: 'GUTENBERG-11',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: 'A timeless and delightfully absurd fantasy in which young Alice falls down a rabbit hole into a nonsensical world populated by the Mad Hatter, the Queen of Hearts, and the Cheshire Cat. Carroll weaves together wordplay, logic puzzles, and surreal imagery to create a dream-like adventure that has captivated children and adults for over 150 years. A cornerstone of English literature and a pioneering work of the fantasy genre.',
+    gutenbergId: 11,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The Adventures of Sherlock Holmes',
+    author: 'Arthur Conan Doyle',
+    ISBN: 'GUTENBERG-1661',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: 'The first short story collection featuring the world\'s most famous detective, Sherlock Holmes, and his trusted companion Dr. Watson. The twelve stories—including "A Scandal in Bohemia" and "The Red-Headed League"—showcase Holmes\'s legendary powers of deduction in a series of gripping mysteries. Conan Doyle created an iconic character whose influence on detective fiction and popular culture is immeasurable.',
+    gutenbergId: 1661,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Romeo and Juliet',
+    author: 'William Shakespeare',
+    ISBN: 'GUTENBERG-1513',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "Shakespeare's immortal tragedy about two star-crossed young lovers from feuding families, the Montagues and Capulets, in the Italian city of Verona. Their passionate love story ends in heartbreak and death, serving as a powerful warning about the destructive nature of hatred and conflict. The most celebrated love story in the English language, its poetry and passion have moved audiences for over 400 years.",
+    gutenbergId: 1513,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'A Tale of Two Cities',
+    author: 'Charles Dickens',
+    ISBN: 'GUTENBERG-98',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: 'Set against the turbulent backdrop of the French Revolution, this sweeping historical novel follows characters in both London and Paris as they navigate love, sacrifice, and the chaos of political upheaval. Sydney Carton\'s ultimate act of self-sacrifice for the woman he loves is one of the most moving moments in all of literature. Opening with the immortal line "It was the best of times, it was the worst of times," this is Dickens at his most powerful.',
+    gutenbergId: 98,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Moby Dick',
+    author: 'Herman Melville',
+    ISBN: 'GUTENBERG-2701',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: 'An epic and ambitious masterpiece of American literature, narrated by the sailor Ishmael as he joins Captain Ahab\'s obsessive quest to hunt the great white whale, Moby Dick, that took his leg. Melville weaves together thrilling adventure, philosophical meditation, and encyclopedic detail about whaling into a complex exploration of obsession, fate, and humanity\'s relationship with nature. Widely considered one of the greatest novels ever written.',
+    gutenbergId: 2701,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Crime and Punishment',
+    author: 'Fyodor Dostoevsky',
+    ISBN: 'GUTENBERG-2554',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "One of the greatest psychological novels ever written, following the brilliant but destitute student Raskolnikov, who murders a pawnbroker and is then tormented by guilt, paranoia, and the investigation of the relentless detective Porfiry. Dostoevsky explores the psychological and spiritual consequences of transgression with extraordinary depth and empathy. A gripping portrait of a tortured mind that is as riveting today as when it was first published.",
+    gutenbergId: 2554,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The Count of Monte Cristo',
+    author: 'Alexandre Dumas',
+    ISBN: 'GUTENBERG-1184',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "A thrilling adventure novel of betrayal and revenge, in which the wrongly imprisoned Edmond Dantès escapes from the island fortress of Château d'If, acquires a vast fortune, and returns to Paris under a new identity to exact elaborate and calculated revenge on those who destroyed his life. Dumas crafts an intricate and endlessly entertaining plot filled with disguises, plots, and dramatic reversals. One of the most popular and widely read novels in history.",
+    gutenbergId: 1184,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Frankenstein',
+    author: 'Mary Shelley',
+    ISBN: 'GUTENBERG-84',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "The pioneering work of science fiction written by Mary Shelley when she was just nineteen years old, telling the story of Victor Frankenstein, a scientist who creates a living being from dead matter only to be horrified by his creation and abandon it. The creature, rejected by his creator and society, becomes a tragic monster driven to violence by loneliness and suffering. A profound meditation on creation, responsibility, and what it means to be human.",
+    gutenbergId: 84,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Dracula',
+    author: 'Bram Stoker',
+    ISBN: 'GUTENBERG-345',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: 'The quintessential vampire novel, told through a series of journal entries, letters, and newspaper clippings as a group of brave individuals band together to stop Count Dracula from spreading his undead curse from Transylvania to England. Stoker created the definitive image of the vampire in Western culture—aristocratic, seductive, and terrifying. A masterwork of Gothic horror that has inspired countless adaptations and a genre of its own.',
+    gutenbergId: 345,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The Wizard of Oz',
+    author: 'L. Frank Baum',
+    ISBN: 'GUTENBERG-55',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: 'The beloved American fairy tale in which young Dorothy Gale is swept away from Kansas by a tornado to the magical land of Oz, where she joins the Scarecrow, the Tin Man, and the Cowardly Lion on a journey to meet the great Wizard and find her way home. Baum created a richly imaginative world that has captured the hearts of readers and audiences for over a century. An enduring classic of children\'s literature and American culture.',
+    gutenbergId: 55,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Adventures of Tom Sawyer',
+    author: 'Mark Twain',
+    ISBN: 'GUTENBERG-74',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "Mark Twain's delightful portrait of boyhood in a small Mississippi River town, following the mischievous and imaginative Tom Sawyer through a series of adventures including tricking friends into whitewashing a fence, attending his own funeral, and witnessing a murder. Tom is one of American literature's most vivid and enduring characters, embodying the spirit of childhood freedom and rebellion. A funny, warm, and quintessentially American classic.",
+    gutenbergId: 74,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Adventures of Huckleberry Finn',
+    author: 'Mark Twain',
+    ISBN: 'GUTENBERG-76',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "Often called the Great American Novel, this sequel to The Adventures of Tom Sawyer follows the young Huck Finn as he escapes his abusive father by rafting down the Mississippi River with Jim, a runaway slave. Twain uses the journey to offer a searing satirical critique of Southern society, racism, and moral hypocrisy. Ernest Hemingway famously declared that all modern American literature comes from this one book.",
+    gutenbergId: 76,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Little Women',
+    author: 'Louisa May Alcott',
+    ISBN: 'GUTENBERG-514',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "A warmly beloved coming-of-age novel following the four March sisters—Meg, Jo, Beth, and Amy—as they grow up in New England during the Civil War era, facing poverty, romance, loss, and the challenge of finding their own paths in a world with limited options for women. Jo March, the independent and literary tomboy, is one of American literature's most iconic and beloved heroines. A timeless story of family, ambition, and the journey from girlhood to womanhood.",
+    gutenbergId: 514,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Great Expectations',
+    author: 'Charles Dickens',
+    ISBN: 'GUTENBERG-1400',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: 'The story of the orphan Pip, who rises from poverty to wealth thanks to the support of an anonymous benefactor, only to discover that gentility and goodness are not the same thing. Along the way, he encounters the eccentric Miss Havisham, the beautiful Estella, and the loyal Magwitch in one of Dickens\'s most perfectly plotted novels. A rich exploration of social class, identity, and what it truly means to be a gentleman.',
+    gutenbergId: 1400,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'David Copperfield',
+    author: 'Charles Dickens',
+    ISBN: 'GUTENBERG-766',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "Often considered Dickens's most autobiographical novel, following David Copperfield from his miserable childhood through his struggles as a young man and eventual success as a writer. The novel is populated with some of Dickens's most memorable characters, including the villainous Uriah Heep and the eternally optimistic Mr. Micawber. Dickens himself called it his 'favourite child.'",
+    gutenbergId: 766,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Jane Eyre',
+    author: 'Charlotte Bronte',
+    ISBN: 'GUTENBERG-1260',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "A landmark of English literature, following the passionate and strong-willed Jane Eyre from her miserable childhood as an orphan to her position as governess at Thornfield Hall, where she falls in love with the brooding, mysterious Mr. Rochester. Charlotte Brontë created a heroine of remarkable psychological complexity and moral integrity who refuses to compromise her independence or principles for love. A gothic romance and a pioneering feminist novel.",
+    gutenbergId: 1260,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Wuthering Heights',
+    author: 'Emily Bronte',
+    ISBN: 'GUTENBERG-768',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "Emily Brontë's only novel is one of the most intense and haunting love stories in English literature, set on the wild Yorkshire moors and chronicling the destructive passion between the foundling Heathcliff and the free-spirited Catherine Earnshaw across two generations. The novel's stark landscapes mirror the turbulent emotions of its characters, creating an atmosphere of wild, gothic romanticism. A challenging and deeply original work that defies easy categorization.",
+    gutenbergId: 768,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Treasure Island',
+    author: 'Robert Louis Stevenson',
+    ISBN: 'GUTENBERG-120',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "The archetypal pirate adventure novel, following young Jim Hawkins as he discovers a treasure map and sets sail with a crew that includes the charming but treacherous Long John Silver. Stevenson's gripping tale of buccaneers, buried gold, and high-seas adventure defined the genre and created many of the pirate tropes that persist to this day. A thrilling and perfectly paced adventure story for all ages.",
+    gutenbergId: 120,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The Picture of Dorian Gray',
+    author: 'Oscar Wilde',
+    ISBN: 'GUTENBERG-174',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "Oscar Wilde's only novel, a Gothic tale in which the beautiful young Dorian Gray sells his soul so that his portrait will age while he remains forever young and handsome. Under the corrupting influence of the hedonistic Lord Henry Wotton, Dorian pursues a life of pleasure and sin, while his portrait becomes increasingly hideous. A brilliant exploration of vanity, corruption, and the consequences of a life lived without a moral compass.",
+    gutenbergId: 174,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The Strange Case of Dr Jekyll and Mr Hyde',
+    author: 'Robert Louis Stevenson',
+    ISBN: 'GUTENBERG-42',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "A chilling Gothic novella exploring the duality of human nature, in which the respectable Dr. Jekyll, experimenting with a mysterious potion, unleashes his dark alter ego, the violent and repulsive Mr. Hyde. Told through the eyes of Jekyll's friend, the lawyer Mr. Utterson, who slowly unravels the terrible secret. Stevenson's brilliant allegory of repression and the divided self has given the world one of literature's most enduring metaphors.",
+    gutenbergId: 42,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The Time Machine',
+    author: 'H.G. Wells',
+    ISBN: 'GUTENBERG-35',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "H.G. Wells's pioneering science fiction novella that invented the concept of time travel as we know it today. A Victorian scientist travels far into the future and discovers a world divided into two species—the gentle Eloi who live on the surface and the monstrous Morlocks who lurk below. A thrilling adventure that is also a haunting social allegory about class division and the ultimate fate of humanity.",
+    gutenbergId: 35,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The War of the Worlds',
+    author: 'H.G. Wells',
+    ISBN: 'GUTENBERG-36',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "One of the earliest and most influential works of science fiction, in which Martians invade Victorian England with terrifying heat-rays and tripod war machines, and humanity is powerless to stop them. Wells uses the alien invasion as a pointed satire of British imperialism, imagining what it would feel like to be on the receiving end of colonial conquest. Orson Welles's radio adaptation famously caused a nationwide panic in America in 1938.",
+    gutenbergId: 36,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Around the World in 80 Days',
+    author: 'Jules Verne',
+    ISBN: 'GUTENBERG-103',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: 'A classic adventure novel in which the punctual and unflappable English gentleman Phileas Fogg wagers his entire fortune that he can circumnavigate the globe in just eighty days, accompanied by his resourceful French valet Passepartout. Verne takes the reader on a whirlwind tour of the world, from Paris to Suez, India, Japan, and America, filled with excitement and close calls. A timeless celebration of adventure, ingenuity, and perseverance.',
+    gutenbergId: 103,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The Hound of the Baskervilles',
+    author: 'Arthur Conan Doyle',
+    ISBN: 'GUTENBERG-2852',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "Widely considered the best Sherlock Holmes novel, in which the brilliant detective investigates the ancient curse of the Baskerville family—a spectral, fire-breathing hound said to haunt the desolate Dartmoor moors. While Holmes pulls strings in London, Watson is sent to the moor alone, and the novel becomes a masterpiece of Gothic atmosphere and psychological tension. A perfectly constructed mystery that showcases Conan Doyle at his atmospheric best.",
+    gutenbergId: 2852,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Les Misérables',
+    author: 'Victor Hugo',
+    ISBN: 'GUTENBERG-135',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "One of the greatest novels ever written, a sweeping epic of love, justice, and redemption set against the backdrop of post-Napoleonic France. It follows the ex-convict Jean Valjean, who spent nineteen years in prison for stealing a loaf of bread and is pursued relentlessly by the obsessive Inspector Javert, as he seeks redemption and builds a new life. A powerful indictment of poverty and social injustice that remains as moving and relevant today as when it was written.",
+    gutenbergId: 135,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Hamlet',
+    author: 'William Shakespeare',
+    ISBN: 'GUTENBERG-1524',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "Shakespeare's greatest tragedy, following the Danish Prince Hamlet's agonizing quest for revenge after his father is murdered by his own brother Claudius, who then marries Hamlet's mother and takes the throne. The play is a profound exploration of grief, madness, moral corruption, and the difficulty of action in the face of uncertainty. Home to some of the most famous lines in the English language, including 'To be or not to be, that is the question.'",
+    gutenbergId: 1524,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Macbeth',
+    author: 'William Shakespeare',
+    ISBN: 'GUTENBERG-1533',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "One of Shakespeare's darkest and most powerful tragedies, following the Scottish general Macbeth whose ambition is ignited by three witches' prophecy and his wife's urging, leading him to murder King Duncan and seize the throne. As his tyranny deepens, Macbeth and Lady Macbeth are consumed by paranoia and guilt, spiraling toward their inevitable destruction. A searing study of unchecked ambition and the corrupting nature of power.",
+    gutenbergId: 1533,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: "A Midsummer Night's Dream",
+    author: 'William Shakespeare',
+    ISBN: 'GUTENBERG-1514',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "One of Shakespeare's most beloved comedies, a delightful confection of mistaken identity and magical mischief as four young Athenian lovers and a troupe of amateur actors become entangled in the enchanted world of the fairy king Oberon, the fairy queen Titania, and the mischievous Puck. Shakespeare weaves together three different worlds—the Athenian court, the fairy realm, and the craftsmen's comedy—into a perfect, harmonious whole. A joyful celebration of love, imagination, and theatre.",
+    gutenbergId: 1514,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Othello',
+    author: 'William Shakespeare',
+    ISBN: 'GUTENBERG-1531',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "A devastating tragedy of jealousy, racism, and manipulation, in which the Moorish general Othello is destroyed by the malicious scheming of his ensign Iago, who plants seeds of jealousy about Othello's wife Desdemona. Shakespeare creates in Iago one of literature's greatest villains and in Othello a deeply sympathetic hero who is undone by his own trusting nature. A powerful and disturbing exploration of the destructive power of prejudice and envy.",
+    gutenbergId: 1531,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The Art of War',
+    author: 'Sun Tzu',
+    ISBN: 'GUTENBERG-132',
+    genre: 'Self-Help',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "An ancient Chinese military treatise dating from the 5th century BC, consisting of 13 chapters each devoted to a different aspect of warfare. Sun Tzu's timeless principles on strategy, tactics, and leadership have been applied not just in military settings but in business, politics, law, and sports. One of the most influential books in history, it remains required reading for strategists and leaders worldwide.",
+    gutenbergId: 132,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Meditations',
+    author: 'Marcus Aurelius',
+    ISBN: 'GUTENBERG-2680',
+    genre: 'Self-Help',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "The private journal of the Roman Emperor Marcus Aurelius, written as a series of Stoic philosophical reflections and exercises to guide his own conduct and moral improvement. Never intended for publication, these notes to himself form one of the world's most intimate and enduring philosophical texts. A guide to living a virtuous, purposeful, and resilient life that has inspired readers from all walks of life for nearly two thousand years.",
+    gutenbergId: 2680,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Siddhartha',
+    author: 'Hermann Hesse',
+    ISBN: 'GUTENBERG-2500',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "A luminous and profoundly moving novel set in ancient India, following Siddhartha, a young Brahmin, on his spiritual journey of self-discovery. Rejecting the teachings of others—including the Buddha himself—Siddhartha seeks enlightenment through direct personal experience, passing through the stages of asceticism, sensual pleasure, and worldly success before ultimately finding peace. A masterpiece of spiritual fiction that has guided countless readers on their own inner journeys.",
+    gutenbergId: 2500,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Thus Spoke Zarathustra',
+    author: 'Friedrich Nietzsche',
+    ISBN: 'GUTENBERG-1998',
+    genre: 'Self-Help',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "Nietzsche's most famous and influential philosophical work, written as a prose poem in which the prophet Zarathustra descends from his mountain solitude to teach humanity his ideas, including the Übermensch, the death of God, and the eternal recurrence. Challenging, provocative, and written in soaring poetic language, it is one of the most ambitious and original works in Western philosophy. A book that demands and rewards careful engagement.",
+    gutenbergId: 1998,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The Republic',
+    author: 'Plato',
+    ISBN: 'GUTENBERG-1497',
+    genre: 'History',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "One of the most influential works of philosophy and political theory ever written, in which Plato uses Socratic dialogue to explore the nature of justice, the ideal state, and the best way to organize society. The Republic introduces Plato's famous Allegory of the Cave and his concept of the philosopher-king. A cornerstone of Western thought that has shaped philosophy, politics, and education for over two millennia.",
+    gutenbergId: 1497,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The Iliad',
+    author: 'Homer',
+    ISBN: 'GUTENBERG-6130',
+    genre: 'History',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "One of the oldest and greatest works of Western literature, an epic poem set during the final year of the Trojan War, focusing on the wrath of the Greek hero Achilles and its devastating consequences for both Greeks and Trojans. Homer brings the ancient world to vivid life, depicting gods and mortals in a world of blood, honor, and grief. A foundational text of Western civilization that continues to be read and studied across the globe.",
+    gutenbergId: 6130,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The Odyssey',
+    author: 'Homer',
+    ISBN: 'GUTENBERG-1727',
+    genre: 'History',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "The companion epic to The Iliad, following the resourceful hero Odysseus on his perilous ten-year journey home to Ithaca after the fall of Troy, encountering monsters, enchantresses, and the wrath of the god Poseidon along the way. The Odyssey is the archetypal story of the hero's journey home and has influenced countless works of literature, film, and art. A thrilling adventure that is also a profound meditation on perseverance, cunning, and the longing for home.",
+    gutenbergId: 1727,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Don Quixote',
+    author: 'Miguel de Cervantes',
+    ISBN: 'GUTENBERG-996',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "Often called the first modern novel and one of the greatest books ever written, following the deluded Spanish gentleman Alonso Quixano who, his mind addled by too many chivalric romances, reinvents himself as the knight-errant Don Quixote de la Mancha and sets off with his earthy squire Sancho Panza to right the wrongs of the world. Cervantes brilliantly balances comedy, pathos, and profound philosophical insight. A timeless masterpiece that gave the English language the word 'quixotic.'",
+    gutenbergId: 996,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Robinson Crusoe',
+    author: 'Daniel Defoe',
+    ISBN: 'GUTENBERG-521',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "Often considered the first English novel, telling the story of a man who survives a shipwreck and lives alone on a deserted tropical island for 28 years before finally returning to civilization. Defoe's meticulous account of Crusoe's ingenuity and survival skills is both a gripping adventure and a founding text of the genre of the desert island narrative. A seminal work that has inspired innumerable adaptations and reimaginings.",
+    gutenbergId: 521,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: "Gulliver's Travels",
+    author: 'Jonathan Swift',
+    ISBN: 'GUTENBERG-829',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "A brilliant and savage satirical novel in which the ship's surgeon Lemuel Gulliver travels to four fantastical lands—Lilliput, Brobdingnag, Laputa, and the land of the Houyhnhnms—each of which serves as a vehicle for Swift to lampoon different aspects of European society, politics, and human nature. What appears to be a children's adventure is in fact one of the sharpest and most bitter satires in the English language. A masterpiece of wit and dark imagination.",
+    gutenbergId: 829,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Oliver Twist',
+    author: 'Charles Dickens',
+    ISBN: 'GUTENBERG-730',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "Dickens's second novel and a passionate social protest against the brutal conditions of the workhouse system and the London underworld of criminals and pickpockets who preyed on the poor and vulnerable. The orphan Oliver's journey from the workhouse to the criminal gang of Fagin and the brutal Bill Sikes, and ultimately to rescue and respectability, is one of the most gripping and emotionally powerful plots in Victorian fiction. It introduced the unforgettable characters of Fagin and the Artful Dodger.",
+    gutenbergId: 730,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The Scarlet Letter',
+    author: 'Nathaniel Hawthorne',
+    ISBN: 'GUTENBERG-25344',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: 'A dark and complex masterwork of American literature set in 17th-century Puritan Boston, in which the young woman Hester Prynne is publicly shamed and forced to wear a scarlet "A" for adultery, while the identity of her lover remains a terrible secret. Hawthorne explores themes of sin, guilt, identity, and hypocrisy with remarkable psychological depth. A foundational work of American literature and a powerful critique of religious intolerance.',
+    gutenbergId: 25344,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'Anne of Green Gables',
+    author: 'L.M. Montgomery',
+    ISBN: 'GUTENBERG-45',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "The beloved story of Anne Shirley, a spirited, red-haired, and irrepressibly imaginative orphan girl who is mistakenly sent to the elderly Marilla and Matthew Cuthbert on Prince Edward Island, and who wins their hearts and the hearts of the whole community with her exuberant personality and vivid imagination. Montgomery created one of children's literature's most irresistible heroines. A timeless and joyful celebration of childhood, imagination, and the beauty of nature.",
+    gutenbergId: 45,
+    readOnline: true,
+    language: 'English'
+  },
+  {
+    title: 'The Jungle Book',
+    author: 'Rudyard Kipling',
+    ISBN: 'GUTENBERG-35997',
+    genre: 'Fiction',
+    quantity: 999,
+    availableCopies: 999,
+    shelfLocation: '',
+    description: "A collection of linked stories set in the jungles of India, the most famous of which follow Mowgli, a human boy raised by wolves who must navigate the complex social world of the jungle and its animals—the wise bear Baloo, the noble panther Bagheera, and the terrifying tiger Shere Khan. Kipling weaves together adventure, philosophy, and vivid descriptions of the natural world. A timeless classic of children's literature that has enchanted generations of readers.",
+    gutenbergId: 35997,
+    readOnline: true,
+    language: 'English'
+  }
+
 ];
 
 const seedData = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
     console.log('MongoDB connected...');
-
     await Book.deleteMany();
-    console.log('Existing books cleared.');
-
-    await Book.insertMany(defaultBooks);
-    console.log(`✅ Database seeded with ${defaultBooks.length} books successfully!`);
-
+    console.log('Books cleared.');
+    await Book.insertMany(books);
+    console.log(`✅ Seeded ${books.length} books!`);
     process.exit();
-  } catch (error) {
-    console.error(`Seeding error: ${error.message}`);
+  } catch (err) {
+    console.error(err.message);
     process.exit(1);
   }
 };

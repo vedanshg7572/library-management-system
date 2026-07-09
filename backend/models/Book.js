@@ -38,6 +38,22 @@ const bookSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
+  description: {
+    type: String,
+    default: ''
+  },
+  gutenbergId: {
+    type: Number,
+    default: null
+  },
+  language: {
+    type: String,
+    default: 'English'
+  },
+  readOnline: {
+    type: Boolean,
+    default: false
+  },
   createdAt: {
     type: Date,
     default: Date.now

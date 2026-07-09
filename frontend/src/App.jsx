@@ -11,6 +11,7 @@ import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import StudentDashboard from './pages/StudentDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import BookReader from './pages/BookReader';
 import CustomCursor from './components/ui/custom-cursor';
 
 function App() {
@@ -45,6 +46,14 @@ function App() {
                   element={
                     <ProtectedRoute allowedRoles={['student']}>
                       <StudentDashboard />
+                    </ProtectedRoute>
+                  } 
+                />
+                <Route 
+                  path="/read/:bookId" 
+                  element={
+                    <ProtectedRoute>
+                      <BookReader />
                     </ProtectedRoute>
                   } 
                 />
