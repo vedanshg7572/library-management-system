@@ -18,6 +18,116 @@ import {
   Code2,
 } from 'lucide-react';
 import AetherFlowHero from '../components/ui/aether-flow-hero';
+import { HeroParallax } from '../components/ui/hero-parallax';
+
+/* ── Library-themed products for HeroParallax ─────────────── */
+const libraryProducts = [
+  {
+    title: 'Classic Literature',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=400&fit=crop',
+    badge: '📖 Fiction', subtitle: 'Timeless stories',
+    fallbackGradient: 'linear-gradient(135deg, #7c3aed, #4c1d95)', emoji: '📖',
+  },
+  {
+    title: 'Science & Discovery',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop',
+    badge: '🔬 Science', subtitle: 'Explore the universe',
+    fallbackGradient: 'linear-gradient(135deg, #06b6d4, #0891b2)', emoji: '🔬',
+  },
+  {
+    title: 'History & Culture',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&h=400&fit=crop',
+    badge: '🏛️ History', subtitle: 'Learn from the past',
+    fallbackGradient: 'linear-gradient(135deg, #f59e0b, #d97706)', emoji: '🏛️',
+  },
+  {
+    title: 'Self Improvement',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1456513080867-f67a29d37ed4?w=600&h=400&fit=crop',
+    badge: '💡 Self-Help', subtitle: 'Grow every day',
+    fallbackGradient: 'linear-gradient(135deg, #10b981, #059669)', emoji: '💡',
+  },
+  {
+    title: 'Technology & Code',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=600&h=400&fit=crop',
+    badge: '💻 Tech', subtitle: 'Build the future',
+    fallbackGradient: 'linear-gradient(135deg, #3b82f6, #1d4ed8)', emoji: '💻',
+  },
+  {
+    title: 'Philosophy & Thought',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&h=400&fit=crop',
+    badge: '🧠 Philosophy', subtitle: 'Think deeper',
+    fallbackGradient: 'linear-gradient(135deg, #8b5cf6, #6d28d9)', emoji: '🧠',
+  },
+  {
+    title: 'Biographies',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1532012197267-da1a852eb65b?w=600&h=400&fit=crop',
+    badge: '👤 Biography', subtitle: 'Inspiring lives',
+    fallbackGradient: 'linear-gradient(135deg, #f97316, #ea580c)', emoji: '👤',
+  },
+  {
+    title: 'Mathematics',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=600&h=400&fit=crop',
+    badge: '➕ Maths', subtitle: 'The language of universe',
+    fallbackGradient: 'linear-gradient(135deg, #ef4444, #dc2626)', emoji: '➕',
+  },
+  {
+    title: 'Economics & Finance',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1550399105-c4db5fb85c18?w=600&h=400&fit=crop',
+    badge: '💰 Economics', subtitle: 'Money & markets',
+    fallbackGradient: 'linear-gradient(135deg, #6366f1, #4f46e5)', emoji: '💰',
+  },
+  {
+    title: 'The Grand Library',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1442131394-8f33f93dc5e8?w=600&h=400&fit=crop',
+    badge: '🏛️ Library', subtitle: 'Thousands of books',
+    fallbackGradient: 'linear-gradient(135deg, #0f766e, #115e59)', emoji: '🏛️',
+  },
+  {
+    title: 'Pride & Prejudice',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&h=400&fit=crop',
+    badge: '📚 Classic', subtitle: 'Jane Austen',
+    fallbackGradient: 'linear-gradient(135deg, #be185d, #9d174d)', emoji: '📚',
+  },
+  {
+    title: 'Sherlock Holmes',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1547155616-554a957f4824?w=600&h=400&fit=crop',
+    badge: '🔍 Mystery', subtitle: 'Arthur Conan Doyle',
+    fallbackGradient: 'linear-gradient(135deg, #92400e, #78350f)', emoji: '🔍',
+  },
+  {
+    title: 'Atomic Habits',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1516979187789-746e4ecdb1b4?w=600&h=400&fit=crop',
+    badge: '⚡ Self-Help', subtitle: 'James Clear',
+    fallbackGradient: 'linear-gradient(135deg, #059669, #047857)', emoji: '⚡',
+  },
+  {
+    title: 'Cosmos',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&h=400&fit=crop',
+    badge: '🌌 Science', subtitle: 'Carl Sagan',
+    fallbackGradient: 'linear-gradient(135deg, #0ea5e9, #0284c7)', emoji: '🌌',
+  },
+  {
+    title: 'Reading Corner',
+    link: '/signup',
+    thumbnail: 'https://images.unsplash.com/photo-1588345921523-c2dcdb7f1e63?w=600&h=400&fit=crop',
+    badge: '☕ Cozy Read', subtitle: 'Find your spot',
+    fallbackGradient: 'linear-gradient(135deg, #d97706, #b45309)', emoji: '☕',
+  },
+];
 
 // Stagger container
 const staggerContainer = {
@@ -118,10 +228,12 @@ const Home = () => {
   const { user } = useAuth();
 
   return (
-    <div className="relative flex flex-col overflow-hidden">
-
-      {/* ============ HERO SECTION (AetherFlow Canvas) ============ */}
+    <div className="min-h-screen flex flex-col">
+      {/* ── Main Hero ──────────────────────────────────────── */}
       <AetherFlowHero />
+
+      {/* ── HeroParallax — Book Categories Showcase ──────── */}
+      <HeroParallax products={libraryProducts} />
 
       {/* ============ FEATURES SECTION ============ */}
       <section className="relative bg-[#03001e] py-28 px-6 overflow-hidden">

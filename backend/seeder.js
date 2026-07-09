@@ -16,7 +16,7 @@ const books = [
     availableCopies: 5,
     shelfLocation: 'Aisle A-1',
     description: 'A revolutionary approach to writing code that is easy to read, understand, and maintain. Robert C. Martin shares best practices and principles for crafting software that is clean, efficient, and professional. This book is essential reading for any developer who wants to improve their craft.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -28,7 +28,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle A-1',
     description: 'A timeless guide for software developers that covers practical advice on everything from personal responsibility and career development to architectural techniques for keeping your code flexible and easy to adapt. The authors use short, thought-provoking anecdotes to illustrate their ideas.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -40,7 +40,7 @@ const books = [
     availableCopies: 3,
     shelfLocation: 'Aisle A-2',
     description: 'The definitive book on design patterns, capturing solutions to commonly occurring problems in software design. Written by the "Gang of Four," it introduced 23 foundational patterns that have become a standard vocabulary for object-oriented design. An indispensable reference for software engineers.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -52,7 +52,7 @@ const books = [
     availableCopies: 6,
     shelfLocation: 'Aisle A-2',
     description: 'Widely used as a university textbook and a professional reference, this comprehensive guide covers a broad range of algorithms in depth. Each chapter is relatively self-contained and presents an algorithm, a design technique, an application area, or a related topic. A must-have for computer science students and practitioners.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -64,7 +64,7 @@ const books = [
     availableCopies: 5,
     shelfLocation: 'Aisle A-3',
     description: 'The first book in a series that dives deep into the core mechanisms of the JavaScript language. Kyle Simpson explores the fundamentals that many developers overlook, offering a clear and thorough understanding of types, grammar, scope, and closures. An essential foundation for any serious JavaScript developer.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -76,7 +76,7 @@ const books = [
     availableCopies: 6,
     shelfLocation: 'Aisle A-3',
     description: 'A fast-paced, thorough introduction to Python that teaches you the language in the first half, then has you write three substantial programs in the second half. It covers the basics of Python programming along with hands-on projects, making it ideal for beginners who want to learn by doing.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -88,7 +88,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle A-4',
     description: 'The definitive guide to technical interviews at top technology companies, featuring 189 programming questions and solutions. This book covers data structures, algorithms, and concepts that commonly appear in technical interviews at companies like Google, Amazon, and Facebook. An indispensable resource for anyone preparing for a software engineering role.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -100,7 +100,7 @@ const books = [
     availableCopies: 3,
     shelfLocation: 'Aisle A-4',
     description: 'A comprehensive guide to finding and exploiting security flaws in web applications. The authors walk through the entire lifecycle of a web application attack, from reconnaissance to exploitation to post-exploitation. Essential reading for security professionals and developers who want to build more secure web applications.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
 
@@ -114,7 +114,7 @@ const books = [
     availableCopies: 7,
     shelfLocation: 'Aisle B-1',
     description: 'The beloved prequel to The Lord of the Rings, following the reluctant hobbit Bilbo Baggins on an epic quest to reclaim a treasure guarded by the dragon Smaug. Tolkien crafted a richly detailed world of dwarves, elves, wizards, and dragons in this timeless adventure. A foundational work of modern fantasy literature.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -126,7 +126,7 @@ const books = [
     availableCopies: 6,
     shelfLocation: 'Aisle B-1',
     description: "A Pulitzer Prize-winning masterpiece that explores racial injustice and the loss of innocence in the American South through the eyes of young Scout Finch. Her father, lawyer Atticus Finch, defends a Black man falsely accused of a terrible crime, becoming a moral hero for generations of readers. The novel remains one of America's most beloved and enduring stories.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -138,7 +138,7 @@ const books = [
     availableCopies: 5,
     shelfLocation: 'Aisle B-2',
     description: "A chilling dystopian novel set in a totalitarian future where Big Brother watches every move and independent thought is a crime. Winston Smith works for the Ministry of Truth, rewriting history to match the Party's ever-changing narrative, and secretly dreams of rebellion. Orwell's prophetic masterpiece gave the world terms like 'doublethink' and 'thoughtcrime' that resonate powerfully today.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -150,7 +150,7 @@ const books = [
     availableCopies: 5,
     shelfLocation: 'Aisle B-2',
     description: 'A lyrical portrait of the Jazz Age and the American Dream told through the eyes of Nick Carraway, who becomes entangled in the glamorous but ultimately tragic world of the mysterious millionaire Jay Gatsby. Gatsby throws lavish parties in hopes of winning back his lost love, Daisy Buchanan. The novel is a piercing critique of the emptiness behind wealth and status.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -162,7 +162,7 @@ const books = [
     availableCopies: 8,
     shelfLocation: 'Aisle B-3',
     description: 'The magical first chapter in the beloved Harry Potter series, introducing orphan Harry who discovers on his eleventh birthday that he is a wizard destined for greatness. He enters Hogwarts School of Witchcraft and Wizardry, makes lifelong friends, and confronts the dark wizard who killed his parents. A global phenomenon that ignited a love of reading in millions of children and adults alike.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -174,7 +174,7 @@ const books = [
     availableCopies: 6,
     shelfLocation: 'Aisle B-3',
     description: 'A philosophical novel about Santiago, an Andalusian shepherd boy who travels from Spain to Egypt in search of a treasure buried near the Pyramids. Along the way, he meets a series of guides who teach him to listen to his heart and pursue his Personal Legend. One of the best-selling books in history, it has been translated into over 80 languages.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -186,7 +186,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle B-4',
     description: "Jane Austen's most beloved novel follows the spirited Elizabeth Bennet as she navigates questions of manners, morality, and marriage in 19th-century England. Her witty battle of wills with the proud Mr. Darcy is one of literature's greatest love stories. A sharp social comedy that remains astonishingly modern and entertaining.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -198,7 +198,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle B-4',
     description: 'The quintessential novel of teenage angst and alienation, narrated by the iconic and rebellious Holden Caulfield after he is expelled from his prestigious prep school. Wandering New York City, he rails against the "phoniness" of the adult world while searching for authenticity and connection. A controversial and enduring landmark of American literature.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -210,7 +210,7 @@ const books = [
     availableCopies: 6,
     shelfLocation: 'Aisle B-5',
     description: 'A satirical allegory in which farm animals overthrow their human farmer, only to find that their new leaders—the pigs—are just as tyrannical as the old ones. Orwell uses the fable to critique the corruption of the Soviet Union under Stalin and the broader dangers of totalitarianism. Despite its brevity, it remains one of the most powerful political novels ever written.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -222,7 +222,7 @@ const books = [
     availableCopies: 3,
     shelfLocation: 'Aisle B-5',
     description: 'A dystopian novel set in a genetically engineered future where citizens are kept content through pleasure, consumerism, and a drug called Soma, with no room for individuality or true freedom. When a man from a Savage Reservation enters this "utopia," the clash of values creates a deeply unsettling meditation on humanity. Huxley\'s vision of a comfortable, complacent dystopia feels eerily prescient today.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
 
@@ -236,7 +236,7 @@ const books = [
     availableCopies: 3,
     shelfLocation: 'Aisle C-1',
     description: "Stephen Hawking's landmark work makes the complex world of cosmology, black holes, and the Big Bang accessible to the general reader. The book explores the nature of time and the possibility of a unifying theory of the universe, covering topics from the Big Bang to the possibility of a 'theory of everything.' A global bestseller that transformed the way millions of people think about the cosmos.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -248,7 +248,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle C-1',
     description: 'A groundbreaking work in evolutionary biology that reframes evolution from the perspective of the gene rather than the organism or species. Dawkins argues that genes are the fundamental units of selection and that organisms are merely "survival machines" built to propagate them. The book also introduced the concept of the "meme," a cultural equivalent of the gene.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -260,7 +260,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle C-2',
     description: 'A sweeping history of humanity that challenges our most basic assumptions about what makes us human, tracing our journey from insignificant apes to the rulers of the world. Harari explores the Cognitive, Agricultural, and Scientific Revolutions that shaped our species. A provocative and thought-provoking narrative that has become a global bestseller.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -272,7 +272,7 @@ const books = [
     availableCopies: 3,
     shelfLocation: 'Aisle C-2',
     description: 'The foundational work of evolutionary biology, in which Darwin presents his theory of natural selection—the process by which species evolve over generations through the survival of the fittest. Published in 1859, it is one of the most important scientific works ever written, fundamentally changing our understanding of life on Earth. Its implications continue to reverberate through biology, philosophy, and theology.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -284,7 +284,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle C-3',
     description: "Carl Sagan's eloquent and awe-inspiring exploration of the universe and humanity's place within it, companion to the landmark television series of the same name. He traverses the cosmic calendar, the evolution of stars, and the search for extraterrestrial intelligence with his signature poetic clarity. A celebration of science, curiosity, and the wonder of existence.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -296,7 +296,7 @@ const books = [
     availableCopies: 2,
     shelfLocation: 'Aisle C-3',
     description: 'A brilliant and sweeping history of the gene, from Mendel\'s peas to the cutting-edge CRISPR technology of today, examining the profound and sometimes troubling implications of our growing power to manipulate the genetic code. Mukherjee weaves together science, history, and personal narrative to tell the story of one of humanity\'s greatest and most dangerous discoveries. Winner of the Pulitzer Prize.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
 
@@ -310,7 +310,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle D-1',
     description: 'A Pulitzer Prize-winning examination of why certain civilizations came to dominate others, arguing that geography and environment, not racial or cultural superiority, determined the fates of nations. Diamond traces how food production, domesticated animals, and technology spread across continents. A provocative challenge to conventional explanations of global inequality.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -322,7 +322,7 @@ const books = [
     availableCopies: 5,
     shelfLocation: 'Aisle D-1',
     description: 'The moving and profoundly humane diary kept by a Jewish teenager hiding from the Nazis in a secret annex in Amsterdam during World War II. Anne Frank recorded her innermost thoughts, fears, and hopes over more than two years until she was discovered and sent to a concentration camp. One of the most widely read and moving accounts of the Holocaust ever written.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -334,7 +334,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle D-2',
     description: "The provocative follow-up to Sapiens, exploring what might happen to humanity in the next century as we pursue the ultimate goals of immortality, happiness, and divine power. Harari examines how technologies like artificial intelligence and genetic engineering will reshape human society and what it means to be human. A bold and unsettling vision of our possible future.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -346,7 +346,7 @@ const books = [
     availableCopies: 3,
     shelfLocation: 'Aisle D-2',
     description: 'An ambitious, eleven-volume masterwork covering the history of Western civilization from ancient times to the era of Napoleon. Will Durant and his wife Ariel spent decades researching and writing this monumental work, making complex history accessible and engaging for general readers. A towering achievement in historical scholarship and narrative writing.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -358,7 +358,7 @@ const books = [
     availableCopies: 5,
     shelfLocation: 'Aisle D-3',
     description: 'A comprehensive and richly detailed history of the world\'s largest democracy from Independence in 1947 to the present day, covering the extraordinary challenges of building a unified nation from such immense diversity. Guha draws on a vast range of sources to paint a vivid picture of Indian politics, society, culture, and conflict. Widely considered the definitive history of modern India.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -370,7 +370,7 @@ const books = [
     availableCopies: 3,
     shelfLocation: 'Aisle D-3',
     description: "A gripping narrative account of the last year of British rule in India and the tumultuous transfer of power that led to Indian and Pakistani independence. Collins and Lapierre bring to life the key figures of the era, including Mountbatten, Gandhi, Nehru, and Jinnah, in vivid, novelistic detail. A classic of popular history that reads with the urgency of a thriller.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
 
@@ -384,7 +384,7 @@ const books = [
     availableCopies: 6,
     shelfLocation: 'Aisle E-1',
     description: 'A practical and science-backed guide to building good habits and breaking bad ones, arguing that tiny changes compound into remarkable results over time. James Clear introduces a four-step framework—cue, craving, response, reward—for understanding and redesigning any habit. An incredibly useful and actionable book that has transformed millions of lives.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -396,7 +396,7 @@ const books = [
     availableCopies: 5,
     shelfLocation: 'Aisle E-1',
     description: 'A persuasive argument that the ability to focus without distraction on cognitively demanding tasks is becoming increasingly rare and valuable in our modern economy. Newport distinguishes "deep work" from the shallow, distracted busyness that fills most people\'s days and provides practical strategies for cultivating intense focus. Essential reading for knowledge workers who want to produce their best work.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -408,7 +408,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle E-2',
     description: "One of the most influential business and self-help books ever written, presenting a principle-centered approach for solving personal and professional problems. Covey's seven habits move from dependence to independence to interdependence, offering a timeless framework for personal effectiveness. Over 40 million copies have been sold worldwide.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -420,7 +420,7 @@ const books = [
     availableCopies: 5,
     shelfLocation: 'Aisle E-2',
     description: 'A classic motivational book based on Napoleon Hill\'s study of over 500 self-made millionaires, distilling their philosophy of success into 13 principles. It explores the power of desire, faith, and the subconscious mind in achieving financial and personal goals. One of the best-selling books of all time, it has inspired generations of entrepreneurs and achievers.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -432,7 +432,7 @@ const books = [
     availableCopies: 5,
     shelfLocation: 'Aisle E-3',
     description: "The groundbreaking guide to interpersonal skills that has sold over 30 million copies since its first publication in 1936. Carnegie's timeless advice on how to make people like you, win people to your way of thinking, and become a better leader remains as relevant today as it was over 80 years ago. One of the first and most enduring self-help books ever written.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -444,7 +444,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle E-3',
     description: 'A transformative spiritual guide that teaches readers to transcend the ego-mind and live fully in the present moment, the only place where true peace and joy can be found. Tolle draws on the teachings of various spiritual traditions to present a simple but profound message about the nature of consciousness. A book that has deeply impacted millions of readers worldwide.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -456,7 +456,7 @@ const books = [
     availableCopies: 6,
     shelfLocation: 'Aisle E-4',
     description: "A personal finance classic told through the contrasting philosophies of Kiyosaki's two 'dads'—his educated but financially struggling biological father, and his friend's uneducated but wealthy father. The book challenges conventional wisdom about money, advocating for financial literacy, investing in assets, and building passive income streams. It has sparked a financial revolution in the way millions of people think about wealth.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -468,7 +468,7 @@ const books = [
     availableCopies: 5,
     shelfLocation: 'Aisle E-4',
     description: "A beautiful and inspiring guide to finding your ikigai—your reason for being—the Japanese concept that gives life meaning, purpose, and joy. The authors explore how the people of Okinawa, one of the world's longest-living communities, have found their ikigai through work, diet, friendship, and an active lifestyle. A gentle and profound book about living a fulfilling and purposeful life.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
 
@@ -482,7 +482,7 @@ const books = [
     availableCopies: 3,
     shelfLocation: 'Aisle F-1',
     description: "The thrilling account of Andrew Wiles's ten-year quest to prove Fermat's Last Theorem, a problem that stumped mathematicians for over 350 years. Singh brilliantly communicates the beauty and drama of pure mathematics for a general audience, weaving together the history of the problem with the story of Wiles's obsessive and solitary struggle. A masterpiece of science writing.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -494,7 +494,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle F-1',
     description: 'The extraordinary biography of Srinivasa Ramanujan, the self-taught mathematical genius from India who, with almost no formal training, made extraordinary contributions to mathematical analysis, number theory, and infinite series. Kanigel traces his improbable journey from Madras to Cambridge and his celebrated collaboration with the British mathematician G.H. Hardy. An inspiring story of talent, determination, and the universal language of mathematics.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -506,7 +506,7 @@ const books = [
     availableCopies: 3,
     shelfLocation: 'Aisle F-2',
     description: 'A classic work that demystifies mathematics by showing how it grew as a practical tool for solving real-world problems throughout history. Hogben takes the reader on a journey from counting to calculus in a way that is engaging, accessible, and informative. Originally published in 1936, it remains one of the best introductions to mathematics for the general reader.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -518,7 +518,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle F-2',
     description: "A timeless guide to mathematical problem-solving that introduces Pólya's famous four-step method: understand the problem, devise a plan, carry out the plan, and look back. The book is filled with heuristics and strategies applicable to any area of mathematics, and its principles are broadly useful for any kind of analytical thinking. Beloved by students, educators, and mathematicians alike.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
 
@@ -532,7 +532,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle G-1',
     description: 'The definitive biography of Apple co-founder Steve Jobs, based on over forty interviews with Jobs himself, as well as interviews with more than a hundred family members, friends, adversaries, competitors, and colleagues. Isaacson paints a nuanced portrait of the brilliant, passionate, and sometimes brutal innovator who transformed six industries: personal computers, animated movies, music, phones, tablet computing, and digital publishing. An essential read for anyone who wants to understand the modern technology industry.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -544,7 +544,7 @@ const books = [
     availableCopies: 5,
     shelfLocation: 'Aisle G-1',
     description: "Walter Isaacson's riveting account of Elon Musk's turbulent life and relentless drive to revolutionize industries from electric vehicles and space exploration to social media and artificial intelligence. Based on two years of access to Musk and over 200 interviews with friends, family, and colleagues, the book explores the psychology and demons that drive the world's most controversial entrepreneur. A compelling portrait of a man reshaping the future.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -556,7 +556,7 @@ const books = [
     availableCopies: 7,
     shelfLocation: 'Aisle G-2',
     description: 'The inspiring autobiography of A.P.J. Abdul Kalam, the renowned aerospace scientist who went on to become the 11th President of India. He recounts his humble beginnings in a small town in Tamil Nadu, his passion for science, and his pivotal role in developing India\'s missile and nuclear programs. A motivational story of perseverance, patriotism, and scientific achievement.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -568,7 +568,7 @@ const books = [
     availableCopies: 5,
     shelfLocation: 'Aisle G-2',
     description: "Mahatma Gandhi's own account of his life and the spiritual and political journey that made him the father of the Indian nation and one of history's greatest moral leaders. He describes his experiments with truth, nonviolence, and self-discipline with remarkable candor, from his childhood in Gujarat to his campaigns for civil rights in South Africa and ultimately Indian independence. A profound and deeply moving spiritual autobiography.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -580,7 +580,7 @@ const books = [
     availableCopies: 3,
     shelfLocation: 'Aisle G-3',
     description: 'The monumental autobiography of Nelson Mandela, one of the great moral and political leaders of the twentieth century, telling his story from his rural boyhood through his long imprisonment on Robben Island to his inauguration as the first democratically elected president of South Africa. Mandela writes with grace, dignity, and a remarkable absence of bitterness about his extraordinary life. A testament to the resilience of the human spirit and the triumph of justice.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
 
@@ -594,7 +594,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle H-1',
     description: 'A fascinating and unconventional look at the hidden side of everything, using economic tools and analysis to explore unexpected connections—like the link between the legalization of abortion and the drop in crime rates. Levitt and Dubner argue that morality represents the way people would like the world to work, while economics reveals how it actually does work. An entertaining and thought-provoking challenge to conventional wisdom.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -606,7 +606,7 @@ const books = [
     availableCopies: 3,
     shelfLocation: 'Aisle H-1',
     description: 'The foundational text of modern economics, published in 1776, in which Adam Smith introduces the concept of the invisible hand and argues that free markets, driven by self-interest, lead to economic prosperity and the wealth of nations. Smith analyzes the division of labor, the nature of markets, and the role of government in the economy with profound insight. A landmark in intellectual history that continues to shape economic and political thought.',
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -618,7 +618,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle H-2',
     description: "Nobel laureate Daniel Kahneman's groundbreaking synthesis of decades of research on cognitive biases and decision-making, exploring the two systems that drive the way we think: the fast, intuitive System 1 and the slower, more deliberate System 2. The book reveals the surprising ways our judgments and choices are influenced by cognitive errors and biases. An essential read for understanding how the human mind really works.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
   {
@@ -630,7 +630,7 @@ const books = [
     availableCopies: 4,
     shelfLocation: 'Aisle H-2',
     description: "A revolutionary approach to building and launching new businesses that relies on validated learning, rapid experimentation, and iterative product releases to shorten product development cycles. Ries introduces concepts like the Minimum Viable Product (MVP) and the Build-Measure-Learn feedback loop that have become standard tools in the startup world. An essential guide for entrepreneurs and innovators.",
-    readOnline: false,
+    readOnline: true,
     language: 'English'
   },
 

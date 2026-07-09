@@ -13,6 +13,7 @@ import StudentDashboard from './pages/StudentDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import BookReader from './pages/BookReader';
 import CustomCursor from './components/ui/custom-cursor';
+import FloatingDock from './components/ui/floating-dock';
 
 function App() {
   return (
@@ -72,6 +73,8 @@ function App() {
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </main>
+            {/* ── Floating Dock — global navigation ── */}
+            <FloatingDock />
           </div>
         </Router>
       </BookProvider>
