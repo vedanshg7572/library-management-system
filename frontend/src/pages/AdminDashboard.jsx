@@ -6,7 +6,6 @@ import StatCard from '../components/StatCard';
 import { 
   BookOpen, 
   CheckCircle, 
-  DollarSign, 
   Users, 
   Plus, 
   Trash2, 
@@ -26,8 +25,7 @@ const AdminDashboard = () => {
     addBook, 
     updateBook, 
     deleteBook, 
-    returnBook, 
-    payFine 
+    returnBook 
   } = useBooks();
 
   // Modal State
@@ -141,11 +139,7 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleClearFine = (transactionId) => {
-    payFine(transactionId);
-    setAlertMsg('Fine cleared successfully.');
-    setTimeout(() => setAlertMsg(''), 4000);
-  };
+
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-8">
@@ -312,7 +306,6 @@ const AdminDashboard = () => {
                         <th className="pb-3 font-bold uppercase tracking-wider">Borrow Date</th>
                         <th className="pb-3 font-bold uppercase tracking-wider">Due Date</th>
                         <th className="pb-3 font-bold uppercase tracking-wider">Status</th>
-                        <th className="pb-3 font-bold uppercase tracking-wider">Accumulated Fine</th>
                         <th className="pb-3 font-bold uppercase tracking-wider text-right">Actions</th>
                       </tr>
                     </thead>
@@ -339,16 +332,6 @@ const AdminDashboard = () => {
                                 {t.status === 'returned' ? 'Returned' : isOverdue ? 'Overdue' : 'Borrowed'}
                               </span>
                             </td>
-                            <td className="py-4">
-                              {t.fine > 0 ? (
-                                <span className="text-rose-400 font-bold flex items-center space-x-1">
-                                  <DollarSign className="h-3 w-3 shrink-0" />
-                                  <span>{t.fine.toFixed(2)}</span>
-                                </span>
-                              ) : (
-                                <span className="text-slate-500">$0.00</span>
-                              )}
-                            </td>
                             <td className="py-4 text-right">
                               <div className="flex items-center justify-end space-x-2">
                                 {t.status !== 'returned' && (
@@ -357,15 +340,6 @@ const AdminDashboard = () => {
                                     className="bg-indigo-600 border border-indigo-500 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-xl text-[10px] font-bold transition-all cursor-pointer"
                                   >
                                     Approve Return
-                                  </button>
-                                )}
-                                {t.fine > 0 && (
-                                  <button
-                                    onClick={() => handleClearFine(t._id)}
-                                    className="bg-emerald-600 border border-emerald-500 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-[10px] font-bold transition-all cursor-pointer"
-                                    title="Collect fine payments"
-                                  >
-                                    Collect Fine
                                   </button>
                                 )}
                               </div>

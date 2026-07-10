@@ -26,6 +26,8 @@ app.use(express.json()); // Body parser
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/books', require('./routes/bookRoutes'));
 app.use('/api/transactions', require('./routes/transactionRoutes'));
+app.use('/api/payment', require('./routes/payment'));
+
 
 // Root Endpoint
 app.get('/', (req, res) => {

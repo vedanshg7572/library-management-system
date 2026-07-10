@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import SmartBookSearch from '../components/SmartBookSearch';
 import {
-  Search, BookOpen, CheckCircle, DollarSign, Clock,
+  Search, BookOpen, CheckCircle, Clock,
   AlertCircle, ChevronLeft, ChevronRight, Star, BookMarked,
   Bookmark, ArrowRight, Play, Eye, X, Filter
 } from 'lucide-react';
@@ -253,7 +253,6 @@ const StudentDashboard = () => {
   const myTransactions   = transactions.filter(t => t.studentId === user.id || t.studentId?._id === user.id);
   const activeBorrowings = myTransactions.filter(t => t.status === 'borrowed' || t.status === 'overdue');
   const returnedCount    = myTransactions.filter(t => t.status === 'returned').length;
-  const totalFines       = activeBorrowings.reduce((s, t) => s + t.fine, 0);
 
   const handleBorrow = async (bookId) => {
     setSuccessMsg(''); setErrorMsg('');
@@ -340,7 +339,6 @@ const StudentDashboard = () => {
             {[
               { icon: BookOpen,   val: activeBorrowings.length, label: 'Active',  color: 'text-indigo-400' },
               { icon: CheckCircle,val: returnedCount,            label: 'Returned',color: 'text-emerald-400' },
-              { icon: DollarSign, val: `₹${totalFines.toFixed(0)}`, label: 'Fine', color: totalFines > 0 ? 'text-rose-400' : 'text-emerald-400' },
             ].map(({ icon: Icon, val, label, color }) => (
               <div key={label} className="flex flex-col items-center px-3 py-2 rounded-xl border border-slate-800 bg-slate-900/40">
                 <Icon className={`h-3.5 w-3.5 ${color} mb-0.5`} />
@@ -406,7 +404,6 @@ const StudentDashboard = () => {
                         <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full ${isOverdue ? 'bg-rose-500/15 text-rose-400' : 'bg-indigo-500/15 text-indigo-400'}`}>
                           {isOverdue ? 'Overdue' : 'On Time'}
                         </span>
-                        {t.fine > 0 && <span className="text-[9px] text-rose-400 font-bold">Fine: ₹{t.fine}</span>}
                       </div>
                     </div>
                     <div className="flex gap-2 flex-shrink-0">
